@@ -1,0 +1,66 @@
+{
+  "_args": [
+    [
+      "couchdb-render@https://registry.npmjs.org/couchdb-render/-/couchdb-render-1.0.1.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "couchdb-render@>=1.0.0 <2.0.0",
+  "_id": "couchdb-render@1.0.1",
+  "_inCache": true,
+  "_location": "/couchdb-render",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "couchdb-render",
+    "raw": "couchdb-render@https://registry.npmjs.org/couchdb-render/-/couchdb-render-1.0.1.tgz",
+    "rawSpec": "https://registry.npmjs.org/couchdb-render/-/couchdb-render-1.0.1.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/couchdb-render/-/couchdb-render-1.0.1.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/pouchdb-list",
+    "/pouchdb-show"
+  ],
+  "_resolved": "https://registry.npmjs.org/couchdb-render/-/couchdb-render-1.0.1.tgz",
+  "_shasum": "892e5a4040dbdc0d07b8e0ca12c0f57ab1bb102f",
+  "_shrinkwrap": null,
+  "_spec": "couchdb-render@https://registry.npmjs.org/couchdb-render/-/couchdb-render-1.0.1.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Marten de Vries"
+  },
+  "bugs": {
+    "url": "https://bugs.launchpad.net/python-pouchdb"
+  },
+  "dependencies": {
+    "couchdb-eval": "^1.0.0",
+    "couchdb-resp-completer": "^1.0.0",
+    "extend": "^1.2.1",
+    "is-empty": "^0.0.1",
+    "pouchdb-plugin-error": "^1.0.0"
+  },
+  "description": "Given the code of a CouchDB show/list function (and some other stuff), this module runs it and returns the result.",
+  "devDependencies": {},
+  "homepage": "https://github.com/pouchdb/couchdb-render#readme",
+  "keywords": [
+    "couch",
+    "couchdb",
+    "list",
+    "pouch",
+    "pouchdb",
+    "render",
+    "show"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "couchdb-render",
+  "optionalDependencies": {},
+  "readme": "couchdb-render\n==============\n\nGiven the code of a CouchDB show/list function (and some other stuff),\nthis module runs it and returns the result. Written to be used for (and\ndeveloped alongside) PouchDB plug-ins.\n\n[Website of those plug-ins](http://python-pouchdb.marten-de-vries.nl/plugins.html)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouchdb/couchdb-render.git"
+  },
+  "version": "1.0.1"
+}

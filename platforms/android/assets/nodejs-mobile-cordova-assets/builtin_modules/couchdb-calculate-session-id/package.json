@@ -1,0 +1,79 @@
+{
+  "_args": [
+    [
+      "couchdb-calculate-session-id@https://registry.npmjs.org/couchdb-calculate-session-id/-/couchdb-calculate-session-id-1.1.2.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "couchdb-calculate-session-id@>=1.1.0 <2.0.0",
+  "_id": "couchdb-calculate-session-id@1.1.2",
+  "_inCache": true,
+  "_location": "/couchdb-calculate-session-id",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "couchdb-calculate-session-id",
+    "raw": "couchdb-calculate-session-id@https://registry.npmjs.org/couchdb-calculate-session-id/-/couchdb-calculate-session-id-1.1.2.tgz",
+    "rawSpec": "https://registry.npmjs.org/couchdb-calculate-session-id/-/couchdb-calculate-session-id-1.1.2.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/couchdb-calculate-session-id/-/couchdb-calculate-session-id-1.1.2.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/pouchdb-auth"
+  ],
+  "_resolved": "https://registry.npmjs.org/couchdb-calculate-session-id/-/couchdb-calculate-session-id-1.1.2.tgz",
+  "_shasum": "364a156a8db7b6120395ea3e210f24ef0c255a1c",
+  "_shrinkwrap": null,
+  "_spec": "couchdb-calculate-session-id@https://registry.npmjs.org/couchdb-calculate-session-id/-/couchdb-calculate-session-id-1.1.2.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "The Hoodie Community"
+  },
+  "browser": {
+    "./lib/hmac.js": "./lib/hmac-browser.js"
+  },
+  "bugs": {
+    "url": "https://github.com/hoodiehq/couchdb-calculate-session-id/issues"
+  },
+  "dependencies": {
+    "aproba": "^1.0.1",
+    "base64url": "^2.0.0",
+    "crypto-lite": "^0.2.0"
+  },
+  "description": "calculates valid CouchDB session IDs using username, salt, secret & timestamp",
+  "devDependencies": {
+    "coveralls": "^2.11.4",
+    "hoodie-zuul-config": "^2.0.0",
+    "istanbul": "^0.4.1",
+    "istanbul-coveralls": "^1.0.3",
+    "semantic-release": "^6.3.2",
+    "tape": "^4.4.0",
+    "zuul": "^3.7.3"
+  },
+  "homepage": "https://github.com/hoodiehq/couchdb-calculate-session-id#readme",
+  "keywords": [
+    "couchdb",
+    "session"
+  ],
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "name": "couchdb-calculate-session-id",
+  "optionalDependencies": {},
+  "readme": "# couchdb-calculate-session-id\n\n> calculates valid CouchDB session IDs using username, salt, secret & timestamp\n\n[![Build Status](https://travis-ci.org/hoodiehq/couchdb-calculate-session-id.svg?branch=master)](https://travis-ci.org/hoodiehq/couchdb-calculate-session-id)\n[![Coverage Status](https://coveralls.io/repos/hoodiehq/couchdb-calculate-session-id/badge.svg?branch=master)](https://coveralls.io/r/hoodiehq/couchdb-calculate-session-id?branch=master)\n[![Dependency Status](https://david-dm.org/hoodiehq/couchdb-calculate-session-id.svg)](https://david-dm.org/hoodiehq/couchdb-calculate-session-id)\n[![devDependency Status](https://david-dm.org/hoodiehq/couchdb-calculate-session-id/dev-status.svg)](https://david-dm.org/hoodiehq/couchdb-calculate-session-id#info=devDependencies)\n\n## Example\n\n```js\nvar calculateSessionId = require('couchdb-calculate-session-id')\n\nvar sessionId = calculateSessionId(\n  'pat',\n  '24eb90e9e1343977b8323857287ffca4',\n  '78875068a1979fb910d5d8f37d316aa4',\n  1449689785\n)\n```\n\n## Arguments\n\n<table>\n  <thead>\n    <tr>\n      <th align=\"left\">Argument</th>\n      <th align=\"left\">Type</th>\n      <th align=\"left\">Description</th>\n    </tr>\n  </thead>\n  <tr>\n    <th align=\"left\"><strong>username</strong></th>\n    <td>String</td>\n    <td><code>name</code> property of <code>\\_users</code> doc</td>\n  </tr>\n  <tr>\n    <th align=\"left\"><strong>usersalt</strong></th>\n    <td>String</td>\n    <td><code>salt</code> property of <code>\\_users</code> doc</td>\n  </tr>\n  <tr>\n    <th align=\"left\"><strong>serversecret</strong></th>\n    <td>String</td>\n    <td><code>couch_httpd_auth.secret</code> of CouchDB configuration</td>\n  </tr>\n  <tr>\n    <th align=\"left\"><strong>timestamp</strong></th>\n    <td>Number</td>\n    <td>Number of seconds elapsed since 1 January 1970 00:00:00 UTC</td>\n  </tr>\n</table>\n\n## How CouchDB does it using Erlang\n\n```erlang\nmake_cookie_hash(UserName, Secret, TimeStamp) ->\n    SessionData = UserName ++ \":\" ++ erlang:integer_to_list(TimeStamp, 16),\n    Hash = crypto:sha_mac(Secret, SessionData),\n    couch_util:encodeBase64Url(SessionData ++ \":\" ++ ?b2l(Hash)).\n```\n\n## Credits\n\nAll credits due to [@christophwitzko](https://twitter.com/christophwitzko),\n[@indutny](https://twitter.com/indutny) & [@janl](https://twitter.com/janl):\nhttps://gist.github.com/janl/4583f5eb4c0d8216cc5f\n\n## License\n\n[Apache-2.0](https://github.com/hoodiehq/hoodie/blob/master/LICENSE)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoodiehq/couchdb-calculate-session-id.git"
+  },
+  "scripts": {
+    "pertest": "standard",
+    "postsemantic-release": "npm run test:coverage && npm run test:coverage:upload",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "test": "tape tests/index.js",
+    "test:browser:cloud": "zuul -- tests",
+    "test:browser:local": "zuul --local 8080 -- tests",
+    "test:coverage": "istanbul cover tests",
+    "test:coverage:upload": "istanbul-coveralls"
+  },
+  "version": "1.1.2"
+}

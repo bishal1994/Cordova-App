@@ -1,0 +1,69 @@
+{
+  "_args": [
+    [
+      "equals@https://registry.npmjs.org/equals/-/equals-1.0.5.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "equals@>=1.0.5 <2.0.0",
+  "_id": "equals@1.0.5",
+  "_inCache": true,
+  "_location": "/equals",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "equals",
+    "raw": "equals@https://registry.npmjs.org/equals/-/equals-1.0.5.tgz",
+    "rawSpec": "https://registry.npmjs.org/equals/-/equals-1.0.5.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/equals/-/equals-1.0.5.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/pouchdb-replicator"
+  ],
+  "_resolved": "https://registry.npmjs.org/equals/-/equals-1.0.5.tgz",
+  "_shasum": "212062dde5e1a510d955f13598efcc6a621b6ace",
+  "_shrinkwrap": null,
+  "_spec": "equals@https://registry.npmjs.org/equals/-/equals-1.0.5.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Jake Rosoman"
+  },
+  "bugs": {
+    "url": "https://github.com/jkroso/equals/issues"
+  },
+  "dependencies": {
+    "jkroso-type": "1"
+  },
+  "description": "Check if two values are deeply equivalent",
+  "devDependencies": {
+    "chai": "*",
+    "hydro": "*",
+    "hydro-bdd": "*",
+    "hydro-chai": "*",
+    "hydro-dot": "*",
+    "hydro-html": "*",
+    "serve": "github:jkroso/serve"
+  },
+  "files": [
+    "index.js"
+  ],
+  "homepage": "https://github.com/jkroso/equals#readme",
+  "keywords": [
+    "=",
+    "equal",
+    "equality",
+    "equivalence",
+    "equivalent"
+  ],
+  "license": "MIT",
+  "name": "equals",
+  "optionalDependencies": {},
+  "readme": "\n# equals\n\n  compare values of any type for equility\n\n## Installation\n\nWith your favorite package manager:\n\n- [packin](//github.com/jkroso/packin): `packin add equals`\n- [component](//github.com/component/component#installing-packages): `component install jkroso/equals`\n- [npm](//npmjs.org/doc/cli/npm-install.html): `npm install equals`\n\nthen in your app:\n\n```js\nvar equal = require('equals')\n```\n\n## API\n\n### equal(a, b, [memos])\n\n`equal` takes as many arguments as you like of any type you like and returns a boolean result. Primitive types are equal if they are `===`. While composite types, i.e. Objects and Arrays, are considered equal if they have both the same structure and each sub-value is also `equal`. Circular references in composite structures are supported.\n\nSame structure:\n```js\nequal(\n  { a : [ 2, 3 ], b : [ 4 ] },\n  { a : [ 2, 3 ], b : [ 4 ] }\n) // => true\n```\n\nDifferent Structure:\n```js\nequal(\n  { x : 5, y : [6] },\n  { x : 5}\n) // => false\n```\n\nSame structure, different values:\n\n```js\nequal(\n  { a: [ 1, 2 ], b : [ 4 ]},\n  { a: [ 2, 3 ], b : [ 4 ]}\n) // => false\n```\n\nPrimitives:\n\n```js\nequal(new Date(0), new Date(1)) // => false\n```\n\nSome possible gotchas:\n- `null` __is not__ equal to `undefined`.\n- `NaN` __is__ equal to `NaN` (normally not the case).\n- `-0` __is__ equal to `+0`.\n- Strings will __not__ coerce to numbers.\n- Non enumerable properties will not be checked. They can't be.\n- `arguments.callee` is not considered when comparing arguments\n",
+  "readmeFilename": "Readme.md",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jkroso/equals.git"
+  },
+  "version": "1.0.5"
+}

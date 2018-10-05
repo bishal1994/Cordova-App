@@ -1,0 +1,67 @@
+{
+  "_args": [
+    [
+      "pouchdb-wrappers@https://registry.npmjs.org/pouchdb-wrappers/-/pouchdb-wrappers-1.3.6.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "pouchdb-wrappers@>=1.3.6 <2.0.0",
+  "_id": "pouchdb-wrappers@1.3.6",
+  "_inCache": true,
+  "_location": "/pouchdb-wrappers",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "pouchdb-wrappers",
+    "raw": "pouchdb-wrappers@https://registry.npmjs.org/pouchdb-wrappers/-/pouchdb-wrappers-1.3.6.tgz",
+    "rawSpec": "https://registry.npmjs.org/pouchdb-wrappers/-/pouchdb-wrappers-1.3.6.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/pouchdb-wrappers/-/pouchdb-wrappers-1.3.6.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/express-pouchdb",
+    "/pouchdb-auth",
+    "/pouchdb-security",
+    "/pouchdb-size",
+    "/pouchdb-system-db",
+    "/pouchdb-system-db/pouchdb-security",
+    "/pouchdb-validation"
+  ],
+  "_resolved": "https://registry.npmjs.org/pouchdb-wrappers/-/pouchdb-wrappers-1.3.6.tgz",
+  "_shasum": "f3e11b664e89a9b317e785c96151ccb1736f25d0",
+  "_shrinkwrap": null,
+  "_spec": "pouchdb-wrappers@https://registry.npmjs.org/pouchdb-wrappers/-/pouchdb-wrappers-1.3.6.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Marten de Vries"
+  },
+  "bugs": {
+    "url": "https://github.com/pouchdb/pouchdb-wrappers/issues"
+  },
+  "dependencies": {
+    "promise-nodify": "^1.0.1"
+  },
+  "description": "Makes wrapping PouchDB functions a lot easier.",
+  "devDependencies": {},
+  "homepage": "https://github.com/pouchdb/pouchdb-wrappers#readme",
+  "keywords": [
+    "couchdb",
+    "plug-in",
+    "plugin",
+    "pouchdb",
+    "wrap",
+    "wrapper",
+    "wrappers"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "pouchdb-wrappers",
+  "optionalDependencies": {},
+  "readme": "pouchdb-wrappers\n================\n\nMakes wrapping PouchDB functions a lot easier. Handy for writing\nplug-ins.\n\nWritten to be used for (and developed alongside) PouchDB plug-ins.\n\n[Website of those plug-ins](http://python-pouchdb.marten-de-vries.nl/plugins.html)\n\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouchdb/pouchdb-wrappers.git"
+  },
+  "version": "1.3.6"
+}

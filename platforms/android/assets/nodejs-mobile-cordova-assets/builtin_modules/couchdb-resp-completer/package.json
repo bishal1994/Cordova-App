@@ -1,0 +1,63 @@
+{
+  "_args": [
+    [
+      "couchdb-resp-completer@https://registry.npmjs.org/couchdb-resp-completer/-/couchdb-resp-completer-1.0.3.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "couchdb-resp-completer@>=1.0.0 <2.0.0",
+  "_id": "couchdb-resp-completer@1.0.3",
+  "_inCache": true,
+  "_location": "/couchdb-resp-completer",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "couchdb-resp-completer",
+    "raw": "couchdb-resp-completer@https://registry.npmjs.org/couchdb-resp-completer/-/couchdb-resp-completer-1.0.3.tgz",
+    "rawSpec": "https://registry.npmjs.org/couchdb-resp-completer/-/couchdb-resp-completer-1.0.3.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/couchdb-resp-completer/-/couchdb-resp-completer-1.0.3.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/couchdb-render",
+    "/pouchdb-update"
+  ],
+  "_resolved": "https://registry.npmjs.org/couchdb-resp-completer/-/couchdb-resp-completer-1.0.3.tgz",
+  "_shasum": "aa4b0c02bf0906fdf7367fbf8bde8e0ac532d213",
+  "_shrinkwrap": null,
+  "_spec": "couchdb-resp-completer@https://registry.npmjs.org/couchdb-resp-completer/-/couchdb-resp-completer-1.0.3.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Marten de Vries"
+  },
+  "bugs": {
+    "url": "https://bugs.launchpad.net/python-pouchdb"
+  },
+  "dependencies": {
+    "extend": "^1.2.1",
+    "is-empty": "^0.0.1",
+    "pouchdb-plugin-error": "^1.0.1"
+  },
+  "description": "Builds a complete CouchDB-like response object from a very marginal one. (Can be just a string at first.)",
+  "devDependencies": {},
+  "homepage": "https://github.com/pouchdb/couchdb-resp-completer#readme",
+  "keywords": [
+    "couch",
+    "couchdb",
+    "object",
+    "pouch",
+    "pouchdb",
+    "response"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "couchdb-resp-completer",
+  "optionalDependencies": {},
+  "readme": "couchdb-resp-completer\n======================\n\nBuilds a complete CouchDB-like response object from a very marginal one.\n(Can be just a string at first.) Written to be used for (and developed\nalongside) PouchDB plug-ins.\n\n[Website of those plug-ins](http://python-pouchdb.marten-de-vries.nl/plugins.html)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouchdb/couchdb-resp-completer.git"
+  },
+  "version": "1.0.3"
+}

@@ -1,0 +1,58 @@
+{
+  "_args": [
+    [
+      "pouchdb-extend@https://registry.npmjs.org/pouchdb-extend/-/pouchdb-extend-0.1.2.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "pouchdb-extend@>=0.1.2 <0.2.0",
+  "_id": "pouchdb-extend@0.1.2",
+  "_inCache": true,
+  "_location": "/pouchdb-extend",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "pouchdb-extend",
+    "raw": "pouchdb-extend@https://registry.npmjs.org/pouchdb-extend/-/pouchdb-extend-0.1.2.tgz",
+    "rawSpec": "https://registry.npmjs.org/pouchdb-extend/-/pouchdb-extend-0.1.2.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/pouchdb-extend/-/pouchdb-extend-0.1.2.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/pouchdb-find"
+  ],
+  "_resolved": "https://registry.npmjs.org/pouchdb-extend/-/pouchdb-extend-0.1.2.tgz",
+  "_shasum": "d1ce511bf704ed2e29f7bf428a416acfffa124b8",
+  "_shrinkwrap": null,
+  "_spec": "pouchdb-extend@https://registry.npmjs.org/pouchdb-extend/-/pouchdb-extend-0.1.2.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "email": "nolan.lawson@gmail.com",
+    "name": "Nolan Lawson"
+  },
+  "bugs": {
+    "url": "https://github.com/pouchdb/pouchdb-extend/issues"
+  },
+  "dependencies": {},
+  "description": "extend() method taken from JQuery 1.9.0 for use in PouchDB",
+  "devDependencies": {},
+  "homepage": "https://github.com/pouchdb/pouchdb-extend",
+  "keywords": [
+    "extends",
+    "pouchdb"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "pouchdb-extend",
+  "optionalDependencies": {},
+  "readme": "pouchdb-extend\n===============\n\nextend() method taken from JQuery 1.9.0 for use in PouchDB\n\nWe use this because other extend libraries have been shown \nto not play nicely with Ember.js and IndexedDB\n(see [pouchdb/pouchdb#2158](https://github.com/pouchdb/pouchdb/issues/2158)).\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouchdb/pouchdb-extend.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.1.2"
+}

@@ -1,0 +1,66 @@
+{
+  "_args": [
+    [
+      "promise-nodify@https://registry.npmjs.org/promise-nodify/-/promise-nodify-1.0.2.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "promise-nodify@>=1.0.0 <2.0.0",
+  "_id": "promise-nodify@1.0.2",
+  "_inCache": true,
+  "_location": "/promise-nodify",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "promise-nodify",
+    "raw": "promise-nodify@https://registry.npmjs.org/promise-nodify/-/promise-nodify-1.0.2.tgz",
+    "rawSpec": "https://registry.npmjs.org/promise-nodify/-/promise-nodify-1.0.2.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/promise-nodify/-/promise-nodify-1.0.2.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/pouchdb-auth",
+    "/pouchdb-list",
+    "/pouchdb-replicator",
+    "/pouchdb-rewrite",
+    "/pouchdb-security",
+    "/pouchdb-show",
+    "/pouchdb-size",
+    "/pouchdb-system-db/pouchdb-security",
+    "/pouchdb-update",
+    "/pouchdb-vhost",
+    "/pouchdb-wrappers"
+  ],
+  "_resolved": "https://registry.npmjs.org/promise-nodify/-/promise-nodify-1.0.2.tgz",
+  "_shasum": "0d0fb143c33400b0061b47e581257557047d4c5a",
+  "_shrinkwrap": null,
+  "_spec": "promise-nodify@https://registry.npmjs.org/promise-nodify/-/promise-nodify-1.0.2.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Marten de Vries"
+  },
+  "bugs": {
+    "url": "https://bugs.launchpad.net/python-pouchdb"
+  },
+  "dependencies": {},
+  "description": "Makes a promise call a node style callback on completion.",
+  "devDependencies": {},
+  "homepage": "https://github.com/marten-de-vries/promise-nodify#readme",
+  "keywords": [
+    "callback",
+    "conversion",
+    "nodify",
+    "promise"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "promise-nodify",
+  "optionalDependencies": {},
+  "readme": "promise-nodify\n==============\n\nMakes a promise call a node style callback on completion. A small\nutility function.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marten-de-vries/promise-nodify.git"
+  },
+  "version": "1.0.2"
+}

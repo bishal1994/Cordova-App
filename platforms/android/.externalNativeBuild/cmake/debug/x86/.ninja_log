@@ -1,0 +1,7 @@
+# ninja log v5
+0	2296	0	CMakeFiles/nodejs-mobile-cordova-native-lib.dir/native-lib.cpp.o	2ff811cce1f87204
+0	2562	0	CMakeFiles/nodejs-mobile-cordova-native-lib.dir/cordova-bridge.cpp.o	c87db21a9b317b6c
+2562	2650	0	/home/hottab/Documents/CordovaApps/testApp1/platforms/android/build/intermediates/cmake/debug/obj/x86/libnodejs-mobile-cordova-native-lib.so	ecfac7ff85b7c922
+31	8034	0	CMakeFiles/nodejs-mobile-cordova-native-lib.dir/native-lib.cpp.o	2ff811cce1f87204
+31	8083	0	CMakeFiles/nodejs-mobile-cordova-native-lib.dir/cordova-bridge.cpp.o	c87db21a9b317b6c
+8083	8865	0	/home/hottab/Documents/CordovaApps/testApp1/platforms/android/build/intermediates/cmake/debug/obj/x86/libnodejs-mobile-cordova-native-lib.so	ecfac7ff85b7c922

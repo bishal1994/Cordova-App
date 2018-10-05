@@ -1,0 +1,58 @@
+{
+  "_args": [
+    [
+      "random-uuid-v4@https://registry.npmjs.org/random-uuid-v4/-/random-uuid-v4-0.0.4.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "random-uuid-v4@>=0.0.4 <0.0.5",
+  "_id": "random-uuid-v4@0.0.4",
+  "_inCache": true,
+  "_location": "/random-uuid-v4",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "random-uuid-v4",
+    "raw": "random-uuid-v4@https://registry.npmjs.org/random-uuid-v4/-/random-uuid-v4-0.0.4.tgz",
+    "rawSpec": "https://registry.npmjs.org/random-uuid-v4/-/random-uuid-v4-0.0.4.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/random-uuid-v4/-/random-uuid-v4-0.0.4.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/couchdb-objects",
+    "/pouchdb-validation"
+  ],
+  "_resolved": "https://registry.npmjs.org/random-uuid-v4/-/random-uuid-v4-0.0.4.tgz",
+  "_shasum": "4a189b0569098dbb7a435b095401f881e361eb6a",
+  "_shrinkwrap": null,
+  "_spec": "random-uuid-v4@https://registry.npmjs.org/random-uuid-v4/-/random-uuid-v4-0.0.4.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Michael Leaney"
+  },
+  "bugs": {
+    "url": "https://github.com/leahciMic/uuid-v4/issues"
+  },
+  "dependencies": {},
+  "description": "A lightweight version 4 UUID generator.",
+  "devDependencies": {},
+  "homepage": "https://github.com/leahciMic/uuid-v4#readme",
+  "keywords": [
+    "RFC4122",
+    "guid",
+    "uuid"
+  ],
+  "main": "uuidv4.js",
+  "name": "random-uuid-v4",
+  "optionalDependencies": {},
+  "readme": "uuid-v4\n=======\n\nA lightweight version 4 UUID generator. This code was taken from a stackoverflow answer.\n\nAll credit goes to broofa (http://stackoverflow.com/users/109538/broofa)\n\nhttp://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leahciMic/uuid-v4.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.4"
+}

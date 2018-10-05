@@ -1,0 +1,64 @@
+{
+  "_args": [
+    [
+      "pouchdb-changeslike-wrapper@https://registry.npmjs.org/pouchdb-changeslike-wrapper/-/pouchdb-changeslike-wrapper-1.0.1.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "pouchdb-changeslike-wrapper@>=1.0.0 <2.0.0",
+  "_id": "pouchdb-changeslike-wrapper@1.0.1",
+  "_inCache": true,
+  "_location": "/pouchdb-changeslike-wrapper",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "pouchdb-changeslike-wrapper",
+    "raw": "pouchdb-changeslike-wrapper@https://registry.npmjs.org/pouchdb-changeslike-wrapper/-/pouchdb-changeslike-wrapper-1.0.1.tgz",
+    "rawSpec": "https://registry.npmjs.org/pouchdb-changeslike-wrapper/-/pouchdb-changeslike-wrapper-1.0.1.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/pouchdb-changeslike-wrapper/-/pouchdb-changeslike-wrapper-1.0.1.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/pouchdb-security",
+    "/pouchdb-system-db",
+    "/pouchdb-system-db/pouchdb-security"
+  ],
+  "_resolved": "https://registry.npmjs.org/pouchdb-changeslike-wrapper/-/pouchdb-changeslike-wrapper-1.0.1.tgz",
+  "_shasum": "390b9aa57fe17f22ff3a6281461f6af0e0407135",
+  "_shrinkwrap": null,
+  "_spec": "pouchdb-changeslike-wrapper@https://registry.npmjs.org/pouchdb-changeslike-wrapper/-/pouchdb-changeslike-wrapper-1.0.1.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Marten de Vries"
+  },
+  "bugs": {
+    "url": "https://bugs.launchpad.net/python-pouchdb"
+  },
+  "dependencies": {},
+  "description": "Helper function that makes wrapping changes(), sync(), replicate() etc. using pouchdb-wrappers easier.",
+  "devDependencies": {},
+  "homepage": "https://github.com/pouchdb/pouchdb-changeslike-wrapper#readme",
+  "keywords": [
+    "changes",
+    "couchdb",
+    "plug-in",
+    "plugin",
+    "pouchdb",
+    "replicate",
+    "sync",
+    "wrap",
+    "wrapper",
+    "wrappers"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "pouchdb-changeslike-wrapper",
+  "optionalDependencies": {},
+  "readme": "pouchdb-changeslike-wrapper\n===========================\n\nHelper function that makes wrapping changes(), sync(), replicate() etc.\nusing pouchdb-wrappers easier.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouchdb/pouchdb-changeslike-wrapper.git"
+  },
+  "version": "1.0.1"
+}

@@ -1,0 +1,51 @@
+{
+  "_args": [
+    [
+      "is-array@https://registry.npmjs.org/is-array/-/is-array-1.0.1.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "is-array@>=1.0.1 <2.0.0",
+  "_id": "is-array@1.0.1",
+  "_inCache": true,
+  "_location": "/is-array",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "is-array",
+    "raw": "is-array@https://registry.npmjs.org/is-array/-/is-array-1.0.1.tgz",
+    "rawSpec": "https://registry.npmjs.org/is-array/-/is-array-1.0.1.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/is-array/-/is-array-1.0.1.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/pouchdb-find"
+  ],
+  "_resolved": "https://registry.npmjs.org/is-array/-/is-array-1.0.1.tgz",
+  "_shasum": "e9850cc2cc860c3bc0977e84ccf0dd464584279a",
+  "_shrinkwrap": null,
+  "_spec": "is-array@https://registry.npmjs.org/is-array/-/is-array-1.0.1.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "bugs": {
+    "url": "https://github.com/retrofox/is-array/issues"
+  },
+  "dependencies": {},
+  "description": "Check if the given value is an Array",
+  "devDependencies": {},
+  "homepage": "https://github.com/retrofox/is-array#readme",
+  "keywords": [
+    "array",
+    "es5",
+    "isArray"
+  ],
+  "license": "MIT",
+  "name": "is-array",
+  "optionalDependencies": {},
+  "readme": "<a href=\"https://jepso-ci.com/yields/isArray\">\n  <img src=\"https://jepso-ci.com/yields/isArray.svg\" align=\"right\" alt=\"jepso-ci status\" />\n</a>\n# isArray\n\n  Check if the given `value` is an `Array`.\n\n## Installation\n\n    $ component install yields/isArray\n\n## API\n\n### isArray(val)\n\n```javascript\nisArray(arguments);\n// > false\nisArray();\n// > false\nisArray([]);\n// > true\n```\n\n## License\n\n  MIT\n",
+  "readmeFilename": "Readme.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/retrofox/is-array.git"
+  },
+  "version": "1.0.1"
+}

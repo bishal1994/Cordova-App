@@ -1,0 +1,68 @@
+{
+  "_args": [
+    [
+      "pouchdb-bulkdocs-wrapper@https://registry.npmjs.org/pouchdb-bulkdocs-wrapper/-/pouchdb-bulkdocs-wrapper-1.0.2.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "pouchdb-bulkdocs-wrapper@>=1.0.0 <2.0.0",
+  "_id": "pouchdb-bulkdocs-wrapper@1.0.2",
+  "_inCache": true,
+  "_location": "/pouchdb-bulkdocs-wrapper",
+  "_phantomChildren": {
+    "bluebird": "1.2.4",
+    "immediate": "3.0.6"
+  },
+  "_requested": {
+    "name": "pouchdb-bulkdocs-wrapper",
+    "raw": "pouchdb-bulkdocs-wrapper@https://registry.npmjs.org/pouchdb-bulkdocs-wrapper/-/pouchdb-bulkdocs-wrapper-1.0.2.tgz",
+    "rawSpec": "https://registry.npmjs.org/pouchdb-bulkdocs-wrapper/-/pouchdb-bulkdocs-wrapper-1.0.2.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/pouchdb-bulkdocs-wrapper/-/pouchdb-bulkdocs-wrapper-1.0.2.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/pouchdb-auth",
+    "/pouchdb-security",
+    "/pouchdb-system-db/pouchdb-security",
+    "/pouchdb-validation"
+  ],
+  "_resolved": "https://registry.npmjs.org/pouchdb-bulkdocs-wrapper/-/pouchdb-bulkdocs-wrapper-1.0.2.tgz",
+  "_shasum": "0c362519583717920060328812c947b6a1afc211",
+  "_shrinkwrap": null,
+  "_spec": "pouchdb-bulkdocs-wrapper@https://registry.npmjs.org/pouchdb-bulkdocs-wrapper/-/pouchdb-bulkdocs-wrapper-1.0.2.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Marten de Vries"
+  },
+  "bugs": {
+    "url": "https://bugs.launchpad.net/python-pouchdb"
+  },
+  "dependencies": {
+    "pouchdb-promise": "^0.0.0"
+  },
+  "description": "Helper function that makes wrapping bulkDocs using pouchdb-wrappers easier.",
+  "devDependencies": {},
+  "homepage": "https://github.com/pouchdb/pouchdb-bulkdocs-wrapper#readme",
+  "keywords": [
+    "bulkDocs",
+    "couchdb",
+    "plug-in",
+    "plugin",
+    "pouchdb",
+    "wrap",
+    "wrapper",
+    "wrappers"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "pouchdb-bulkdocs-wrapper",
+  "optionalDependencies": {},
+  "readme": "pouchdb-bulkdocs-wrapper\n========================\n\nHelper function that makes wrapping bulkDocs using pouchdb-wrappers easier.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouchdb/pouchdb-bulkdocs-wrapper.git"
+  },
+  "version": "1.0.2"
+}

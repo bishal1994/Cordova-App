@@ -1,0 +1,70 @@
+{
+  "_args": [
+    [
+      "couchdb-objects@https://registry.npmjs.org/couchdb-objects/-/couchdb-objects-1.0.7.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "couchdb-objects@>=1.0.0 <2.0.0",
+  "_id": "couchdb-objects@1.0.7",
+  "_inCache": true,
+  "_location": "/couchdb-objects",
+  "_phantomChildren": {
+    "bluebird": "1.2.4",
+    "immediate": "3.0.6"
+  },
+  "_requested": {
+    "name": "couchdb-objects",
+    "raw": "couchdb-objects@https://registry.npmjs.org/couchdb-objects/-/couchdb-objects-1.0.7.tgz",
+    "rawSpec": "https://registry.npmjs.org/couchdb-objects/-/couchdb-objects-1.0.7.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/couchdb-objects/-/couchdb-objects-1.0.7.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/pouchdb-list",
+    "/pouchdb-rewrite",
+    "/pouchdb-show",
+    "/pouchdb-update",
+    "/pouchdb-validation"
+  ],
+  "_resolved": "https://registry.npmjs.org/couchdb-objects/-/couchdb-objects-1.0.7.tgz",
+  "_shasum": "0a7e4067de9e08ca1c576e3822142d2aa55804d8",
+  "_shrinkwrap": null,
+  "_spec": "couchdb-objects@https://registry.npmjs.org/couchdb-objects/-/couchdb-objects-1.0.7.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Marten de Vries"
+  },
+  "bugs": {
+    "url": "https://bugs.launchpad.net/python-pouchdb"
+  },
+  "dependencies": {
+    "extend": "^1.2.1",
+    "header-case-normalizer": "^1.0.0",
+    "is-empty": "^0.0.1",
+    "pouchdb-promise": "^0.0.0",
+    "random-uuid-v4": "^0.0.4"
+  },
+  "description": "Aids in the construction of JSON objects as used by CouchDB.",
+  "devDependencies": {},
+  "homepage": "https://github.com/pouchdb/couchdb-objects#readme",
+  "keywords": [
+    "couch",
+    "couchdb",
+    "object",
+    "pouch",
+    "pouchdb"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "couchdb-objects",
+  "optionalDependencies": {},
+  "readme": "couchdb-objects\n===============\n\nAids in the construction of JSON objects as used by CouchDB. Written to\nbe used for (and developed alongside) PouchDB plug-ins.\n\n[Website of those plug-ins](http://python-pouchdb.marten-de-vries.nl/plugins.html)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouchdb/couchdb-objects.git"
+  },
+  "version": "1.0.7"
+}

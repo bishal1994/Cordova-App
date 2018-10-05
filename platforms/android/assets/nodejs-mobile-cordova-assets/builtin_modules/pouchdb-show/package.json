@@ -1,0 +1,76 @@
+{
+  "_args": [
+    [
+      "pouchdb-show@https://registry.npmjs.org/pouchdb-show/-/pouchdb-show-1.0.8.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "pouchdb-show@>=1.0.8 <2.0.0",
+  "_id": "pouchdb-show@1.0.8",
+  "_inCache": true,
+  "_location": "/pouchdb-show",
+  "_phantomChildren": {
+    "bluebird": "1.2.4",
+    "immediate": "3.0.6"
+  },
+  "_requested": {
+    "name": "pouchdb-show",
+    "raw": "pouchdb-show@https://registry.npmjs.org/pouchdb-show/-/pouchdb-show-1.0.8.tgz",
+    "rawSpec": "https://registry.npmjs.org/pouchdb-show/-/pouchdb-show-1.0.8.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/pouchdb-show/-/pouchdb-show-1.0.8.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/express-pouchdb"
+  ],
+  "_resolved": "https://registry.npmjs.org/pouchdb-show/-/pouchdb-show-1.0.8.tgz",
+  "_shasum": "950cfc28770c0aa2dbac96f275c80953fe5a25e6",
+  "_shrinkwrap": null,
+  "_spec": "pouchdb-show@https://registry.npmjs.org/pouchdb-show/-/pouchdb-show-1.0.8.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Marten de Vries"
+  },
+  "bugs": {
+    "url": "https://github.com/pouchdb/pouchdb-show/issues"
+  },
+  "dependencies": {
+    "couchdb-objects": "^1.0.0",
+    "couchdb-render": "^1.0.0",
+    "pouchdb-plugin-error": "^1.0.0",
+    "pouchdb-promise": "^0.0.0",
+    "pouchdb-req-http-query": "^1.0.0",
+    "promise-nodify": "^1.0.0"
+  },
+  "description": "A PouchDB plug-in that allows you to re-use your CouchDB show functions on the client side.",
+  "devDependencies": {
+    "navigator": "^1.0.1",
+    "pouchdb-plugin-helper": "^2.0.0"
+  },
+  "homepage": "https://github.com/pouchdb/pouchdb-show#readme",
+  "keywords": [
+    "couch",
+    "couchdb",
+    "design",
+    "pouch",
+    "pouchdb",
+    "show"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "pouchdb-show",
+  "optionalDependencies": {},
+  "readme": "pouchdb-show\n============\n\n[![Build Status](https://travis-ci.org/pouchdb/pouchdb-show.svg?branch=master)](https://travis-ci.org/pouchdb/pouchdb-show)\n[![Dependency Status](https://david-dm.org/pouchdb/pouchdb-show.svg)](https://david-dm.org/pouchdb/pouchdb-show)\n[![devDependency Status](https://david-dm.org/pouchdb/pouchdb-show/dev-status.svg)](https://david-dm.org/pouchdb/pouchdb-show#info=devDependencies)\n\nA PouchDB plug-in that allows you to re-use your CouchDB show functions\non the client side. A browser version is available.\n\nTODO: rst -> md, update & restructure\n```rst\n.. _pouchdb-show-plug-in:\n\nPouchDB Show plug-in\n====================\n+----------------------+-----------------+\n| NodeJS package name: | `pouchdb-show`_ |\n+----------------------+-----------------+\n| Browser object name: | ``window.Show`` |\n+----------------------+-----------------+\n\nFirst, make sure you understand how show functions work in CouchDB. A\ngood start is `the CouchDB guide entry on shows`_.\n\n.. _pouchdb-show: https://www.npmjs.org/package/pouchdb-show\n.. _the CouchDB guide entry on shows: http://guide.couchdb.org/draft/formats.html\n\n.. js:function:: Show.show(showPath[, options[, callback]])\n\n   Similar to the :js:func:`List.list` function, but then for show\n   functions. Only differences are documented.\n\n   :param string showPath: specifies the show (and optionally the\n       document) to use. Has the following form:\n       ``designDocName/showName[/docId]``\n\n```\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouchdb/pouchdb-show.git"
+  },
+  "scripts": {
+    "build": "npm run helper -- build Show",
+    "helper": "pouchdb-plugin-helper",
+    "test": "npm run helper -- test"
+  },
+  "version": "1.0.8"
+}

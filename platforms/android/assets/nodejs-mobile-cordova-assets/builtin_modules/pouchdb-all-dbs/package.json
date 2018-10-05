@@ -1,0 +1,104 @@
+{
+  "_args": [
+    [
+      "pouchdb-all-dbs@https://registry.npmjs.org/pouchdb-all-dbs/-/pouchdb-all-dbs-1.0.2.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "pouchdb-all-dbs@>=1.0.2 <2.0.0",
+  "_id": "pouchdb-all-dbs@1.0.2",
+  "_inCache": true,
+  "_location": "/pouchdb-all-dbs",
+  "_phantomChildren": {
+    "lie": "3.0.4"
+  },
+  "_requested": {
+    "name": "pouchdb-all-dbs",
+    "raw": "pouchdb-all-dbs@https://registry.npmjs.org/pouchdb-all-dbs/-/pouchdb-all-dbs-1.0.2.tgz",
+    "rawSpec": "https://registry.npmjs.org/pouchdb-all-dbs/-/pouchdb-all-dbs-1.0.2.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/pouchdb-all-dbs/-/pouchdb-all-dbs-1.0.2.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/express-pouchdb"
+  ],
+  "_resolved": "https://registry.npmjs.org/pouchdb-all-dbs/-/pouchdb-all-dbs-1.0.2.tgz",
+  "_shasum": "8fa1aa4b01665e00e0da9c61bf6dbb99eca05d3c",
+  "_shrinkwrap": null,
+  "_spec": "pouchdb-all-dbs@https://registry.npmjs.org/pouchdb-all-dbs/-/pouchdb-all-dbs-1.0.2.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": "",
+  "browser": {
+    "crypto": false
+  },
+  "browserify": {
+    "transform": [
+      "es3ify"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/nolanlawson/pouchdb-all-dbs/issues"
+  },
+  "dependencies": {
+    "argsarray": "0.0.1",
+    "es3ify": "^0.1.3",
+    "inherits": "~2.0.1",
+    "pouchdb-promise": "5.4.3",
+    "tiny-queue": "^0.2.0"
+  },
+  "description": "PouchDB allDbs plugin",
+  "devDependencies": {
+    "bluebird": "^1.0.7",
+    "browserify": "^12.0.2",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.3.0",
+    "http-server": "~0.5.5",
+    "istanbul": "^0.2.7",
+    "jshint": "~2.8.0",
+    "mocha": "^2.4.5",
+    "phantomjs-prebuilt": "^2.1.7",
+    "pouchdb": "^5.4.0",
+    "request": "^2.36.0",
+    "sauce-connect-launcher": "^0.14.0",
+    "selenium-standalone": "^5.1.0",
+    "uglify-js": "^2.4.13",
+    "watchify": "^3.1.0",
+    "wd": "^0.2.21"
+  },
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "homepage": "https://github.com/nolanlawson/pouchdb-all-dbs#readme",
+  "keywords": [
+    "allDbs",
+    "couch",
+    "couchdb",
+    "plugin",
+    "pouch",
+    "pouchdb"
+  ],
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "name": "pouchdb-all-dbs",
+  "optionalDependencies": {},
+  "readme": "PouchDB allDbs() plugin\n=====\n\n[![Build Status](https://travis-ci.org/nolanlawson/pouchdb-all-dbs.svg)](https://travis-ci.org/nolanlawson/pouchdb-all-dbs)\n\nThis plugin exposes the `PouchDB.allDbs()` function, which you can use to list all local databases. It works by listening for `PouchDB.on('created')` and `PouchDB.on('destroyed')` events, and maintaining a separate database to store the names of those databases.\n\n**Note**: `allDbs()` used to be part of PouchDB core (enabled using `PouchDB.enableAllDbs = true`). It was deprecated in PouchDB 2.0.0, and now lives on as a plugin.\n\nUsage\n-----\n\n### In the browser\n\nTo use this plugin, include it after `pouchdb.js` in your HTML page:\n\n```html\n<script src=\"pouchdb.js\"></script>\n<script src=\"pouchdb.all-dbs.js\"></script>\n```\n\nThis plugin is also available from Bower:\n\n```\nbower install pouchdb-all-dbs\n```\n\nMerely including it as a script tag will work, assuming you also used a script tag for PouchDB.\n\n### In Node/Browserify/Webpack/etc.\n\nFirst, npm install it:\n\n```\nnpm install pouchdb-all-dbs\n```\n\nAnd then do this:\n\n```js\nvar PouchDB = require('pouchdb');\nrequire('pouchdb-all-dbs')(PouchDB);\n```\n\nAPI\n-----\n\n#### PouchDB.allDbs([callback])\n\nReturns a list of all non-deleted databases.  Example usage as a promise:\n\n```js\nPouchDB.allDbs().then(function (dbs) {\n  // dbs is an array of strings, e.g. ['mydb1', 'mydb2']\n}).catch(function (err) {\n  // handle err\n});\n```\n\nOr if you like callbacks, you can use that style instead:\n\n```js\nPouchDB.allDbs(function (err, dbs) {\n  if (err) {\n    // handle err\n  }\n  // dbs is an array of strings, e.g. ['mydb1', 'mydb2']\n});\n```\n\n#### PouchDB.resetAllDbs([callback])\n\nDestroys the separate allDbs database.  You should never need to call this function; I just use it for the unit tests.\n\nExample usage:\n\n```js\nPouchDB.resetAllDbs().then(function () {\n  // allDbs store is now destroyed\n}).catch(function (err) {\n  // handle err\n});\n```\n\nBuilding\n----\n    npm install\n    npm run build\n\nTesting\n----\n\n### In Node\n\nThis will run the tests in Node using LevelDB:\n\n    npm test\n    \nYou can also check for 100% code coverage using:\n\n    npm run coverage\n\n\nIf you have mocha installed globally you can run single test with:\n```\nTEST_DB=local mocha --reporter spec --grep search_phrase\n```\n\nThe `TEST_DB` environment variable specifies the database that PouchDB should use (see `package.json`).\n\n### In the browser\n\nRun `npm run dev` and then point your favorite browser to [http://127.0.0.1:8001/test/index.html](http://127.0.0.1:8001/test/index.html).\n\nThe query param `?grep=mysearch` will search for tests matching `mysearch`.\n\n### Automated browser tests\n\nYou can run e.g.\n\n    CLIENT=selenium:firefox npm test\n    CLIENT=selenium:phantomjs npm test\n\nThis will run the tests automatically and the process will exit with a 0 or a 1 when it's done. Firefox uses IndexedDB, and PhantomJS uses WebSQL.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nolanlawson/pouchdb-all-dbs.git"
+  },
+  "scripts": {
+    "build": "mkdir -p dist && browserify . -o dist/pouchdb.all-dbs.js && npm run min",
+    "coverage": "npm test --coverage && istanbul check-coverage --lines 100 --function 100 --statements 100 --branches 100",
+    "dev": "browserify test/test.js > test/test-bundle.js && npm run dev-server",
+    "dev-server": "./bin/dev-server.js",
+    "jshint": "jshint -c .jshintrc lib/*.js test/test.js",
+    "min": "uglifyjs dist/pouchdb.all-dbs.js -mc > dist/pouchdb.all-dbs.min.js",
+    "test": "npm run jshint && ./bin/run-test.sh",
+    "test-browser": "./bin/test-browser.js",
+    "test-node": "TEST_DB=testdb istanbul test ./node_modules/mocha/bin/_mocha test/test.js"
+  },
+  "version": "1.0.2"
+}

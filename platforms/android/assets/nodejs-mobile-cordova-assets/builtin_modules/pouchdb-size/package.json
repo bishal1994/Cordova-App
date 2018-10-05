@@ -1,0 +1,85 @@
+{
+  "_args": [
+    [
+      "pouchdb-size@https://registry.npmjs.org/pouchdb-size/-/pouchdb-size-1.2.2.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "pouchdb-size@>=1.2.2 <2.0.0",
+  "_id": "pouchdb-size@1.2.2",
+  "_inCache": true,
+  "_location": "/pouchdb-size",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "pouchdb-size",
+    "raw": "pouchdb-size@https://registry.npmjs.org/pouchdb-size/-/pouchdb-size-1.2.2.tgz",
+    "rawSpec": "https://registry.npmjs.org/pouchdb-size/-/pouchdb-size-1.2.2.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/pouchdb-size/-/pouchdb-size-1.2.2.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/express-pouchdb"
+  ],
+  "_resolved": "https://registry.npmjs.org/pouchdb-size/-/pouchdb-size-1.2.2.tgz",
+  "_shasum": "12915f13e9d241cb0e70a66c18e7d5ff699f10a8",
+  "_shrinkwrap": null,
+  "_spec": "pouchdb-size@https://registry.npmjs.org/pouchdb-size/-/pouchdb-size-1.2.2.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Marten de Vries"
+  },
+  "bugs": {
+    "url": "https://github.com/marten-de-vries/pouchdb-size/issues"
+  },
+  "dependencies": {
+    "bluebird": "^2.3.11",
+    "get-folder-size": "^0.1.1",
+    "pouchdb-wrappers": "^1.2.0",
+    "promise-nodify": "^1.0.1"
+  },
+  "description": "Adds disk_size to info()'s output for your leveldown backed PouchDB's.",
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "fs-extra": "^0.12.0",
+    "istanbul": "^0.3.4",
+    "jshint": "^2.5.10",
+    "jsondown": "^0.1.1",
+    "locket": "0.0.2",
+    "medeadown": "^1.1.1",
+    "memdown": "^1.0.0",
+    "mocha": "^2.0.1",
+    "pouchdb": "^3.2.0",
+    "sqldown": "^1.1.1",
+    "sqlite3": "^3.0.4"
+  },
+  "homepage": "https://github.com/marten-de-vries/pouchdb-size#readme",
+  "keywords": [
+    "couch",
+    "couchdb",
+    "disk_size",
+    "filesize",
+    "info",
+    "pouch",
+    "pouchdb",
+    "size"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "pouchdb-size",
+  "optionalDependencies": {},
+  "readme": "pouchdb-size\n============\n\n[![Build Status](https://travis-ci.org/marten-de-vries/pouchdb-size.svg?branch=master)](https://travis-ci.org/marten-de-vries/pouchdb-size)\n[![Dependency Status](https://david-dm.org/marten-de-vries/pouchdb-size.svg)](https://david-dm.org/marten-de-vries/pouchdb-size)\n[![devDependency Status](https://david-dm.org/marten-de-vries/pouchdb-size/dev-status.svg)](https://david-dm.org/marten-de-vries/pouchdb-size#info=devDependencies)\n\nAdds disk_size to info()'s output for your *down backed PouchDB's.\n\nTested with leveldown, sqldown, jsondown, locket and medeadown. When it\ncan't determine the database size, it falls back to the default\n``info()`` output.\n\nExample\n-------\n\n```bash\nnpm install pouchdb pouchdb-size\n```\n\n```javascript\n//index.js\nvar PouchDB = require('pouchdb');\nPouchDB.plugin(require('pouchdb-size'));\n\nvar db = new PouchDB('test');\ndb.installSizeWrapper();\ndb.info().then(function (resp) {\n\t//resp will contain disk_size\n})\n```\n\nAPI\n---\n\n- ``db.installSizeWrapper()``\n\n  wraps ``db.info()`` in such a way that it will include a ``disk_size``\n  property in its output for supported database backends.\n\n- ``db.getDiskSize([callback])``\n\n  like PouchDB, this method both returns a Promise and accepts a\n  callback. Either returns an error or the disk size of the current db.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marten-de-vries/pouchdb-size.git"
+  },
+  "scripts": {
+    "check-coverage": "istanbul check-coverage --statement 100 --branch 100 --function 100",
+    "collect-coverage": "istanbul cover ./node_modules/.bin/_mocha",
+    "coverage": "npm run collect-coverage && npm run check-coverage",
+    "jshint": "jshint index.js test/test.js",
+    "test": "npm run coverage && npm run jshint"
+  },
+  "version": "1.2.2"
+}

@@ -1,0 +1,66 @@
+{
+  "_args": [
+    [
+      "header-case-normalizer@https://registry.npmjs.org/header-case-normalizer/-/header-case-normalizer-1.0.3.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "header-case-normalizer@>=1.0.3 <2.0.0",
+  "_id": "header-case-normalizer@1.0.3",
+  "_inCache": true,
+  "_location": "/header-case-normalizer",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "header-case-normalizer",
+    "raw": "header-case-normalizer@https://registry.npmjs.org/header-case-normalizer/-/header-case-normalizer-1.0.3.tgz",
+    "rawSpec": "https://registry.npmjs.org/header-case-normalizer/-/header-case-normalizer-1.0.3.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/header-case-normalizer/-/header-case-normalizer-1.0.3.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/couchdb-objects",
+    "/express-pouchdb",
+    "/pouchdb-req-http-query"
+  ],
+  "_resolved": "https://registry.npmjs.org/header-case-normalizer/-/header-case-normalizer-1.0.3.tgz",
+  "_shasum": "fb1d4c8d0c6169dcab4f7c7e21b186a6a22ac0c1",
+  "_shrinkwrap": null,
+  "_spec": "header-case-normalizer@https://registry.npmjs.org/header-case-normalizer/-/header-case-normalizer-1.0.3.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Marten de Vries"
+  },
+  "bugs": {
+    "url": "https://bugs.launchpad.net/python-pouchdb"
+  },
+  "dependencies": {},
+  "description": "Converts HTTP headers to their most common casing. (e.g. usEr-Agent -> User-Agent)",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.20.1"
+  },
+  "homepage": "https://github.com/marten-de-vries/header-case-normalizer#readme",
+  "keywords": [
+    "capitalize",
+    "case",
+    "casing",
+    "header",
+    "headers",
+    "http"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "header-case-normalizer",
+  "optionalDependencies": {},
+  "readme": "header-case-normalizer\n======================\n\nHTTP headers are case insensitive. That's why NodeJS makes them lower\ncase by default. While sensible, sometimes, for example for\ncompatibility reasons, you might need them in their more common form.\nThis library converts them:\n\n\tvar normalizeHeaderCase = require(\"header-case-normalizer\");\n\tnormalizeHeaderCase(\"user-agent\") //-> \"User-Agent\"\n\nTested with a list from MDN.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marten-de-vries/header-case-normalizer.git"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "version": "1.0.3"
+}

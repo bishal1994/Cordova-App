@@ -1,0 +1,70 @@
+{
+  "_args": [
+    [
+      "level-write-stream@https://registry.npmjs.org/level-write-stream/-/level-write-stream-1.0.0.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "level-write-stream@1.0.0",
+  "_id": "level-write-stream@1.0.0",
+  "_inCache": true,
+  "_location": "/level-write-stream",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "level-write-stream",
+    "raw": "level-write-stream@https://registry.npmjs.org/level-write-stream/-/level-write-stream-1.0.0.tgz",
+    "rawSpec": "https://registry.npmjs.org/level-write-stream/-/level-write-stream-1.0.0.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/level-write-stream/-/level-write-stream-1.0.0.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/pouchdb"
+  ],
+  "_resolved": "https://registry.npmjs.org/level-write-stream/-/level-write-stream-1.0.0.tgz",
+  "_shasum": "3f7fbb679a55137c0feb303dee766e12ee13c1dc",
+  "_shrinkwrap": null,
+  "_spec": "level-write-stream@https://registry.npmjs.org/level-write-stream/-/level-write-stream-1.0.0.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "email": "raynos2@gmail.com",
+    "name": "Raynos"
+  },
+  "bugs": {
+    "email": "raynos2@gmail.com",
+    "url": "https://github.com/Raynos/level-write-stream/issues"
+  },
+  "contributors": [
+    {
+      "name": "Jake Verbaten"
+    }
+  ],
+  "dependencies": {
+    "end-stream": "~0.1.0"
+  },
+  "description": "A writeStream implementation for leveldb",
+  "devDependencies": {
+    "tap": "~0.3.1"
+  },
+  "homepage": "https://github.com/Raynos/level-write-stream",
+  "keywords": [],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/Raynos/level-write-stream/raw/master/LICENSE"
+    }
+  ],
+  "main": "index",
+  "name": "level-write-stream",
+  "optionalDependencies": {},
+  "readme": "# level-write-stream\n\nA writeStream implementation for leveldb\n\n## Example\n\nThis implements the writeStream logic for a levelup interface.\n\nJust pass it a db with `put` and `batch` method and it will do\n    the rest!\n\n```js\nvar LevelWriteStream = require(\"level-write-stream\")\n\nvar db = someleveldb()\n\nvar writeStream = LevelWriteStream(db)\n\nvar stream = writeStream(options)\n\nstream.write({\n    key: key\n    , value: value\n})\n```\n\n## Installation\n\n`npm install level-write-stream`\n\n## Contributors\n\n - Raynos\n\n## MIT Licenced\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Raynos/level-write-stream.git"
+  },
+  "scripts": {
+    "test": "tap --stderr --tap ./test"
+  },
+  "version": "1.0.0"
+}

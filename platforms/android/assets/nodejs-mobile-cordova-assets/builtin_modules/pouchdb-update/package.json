@@ -1,0 +1,77 @@
+{
+  "_args": [
+    [
+      "pouchdb-update@https://registry.npmjs.org/pouchdb-update/-/pouchdb-update-1.0.8.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "pouchdb-update@>=1.0.8 <2.0.0",
+  "_id": "pouchdb-update@1.0.8",
+  "_inCache": true,
+  "_location": "/pouchdb-update",
+  "_phantomChildren": {
+    "bluebird": "1.2.4",
+    "immediate": "3.0.6"
+  },
+  "_requested": {
+    "name": "pouchdb-update",
+    "raw": "pouchdb-update@https://registry.npmjs.org/pouchdb-update/-/pouchdb-update-1.0.8.tgz",
+    "rawSpec": "https://registry.npmjs.org/pouchdb-update/-/pouchdb-update-1.0.8.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/pouchdb-update/-/pouchdb-update-1.0.8.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/express-pouchdb"
+  ],
+  "_resolved": "https://registry.npmjs.org/pouchdb-update/-/pouchdb-update-1.0.8.tgz",
+  "_shasum": "97e93d5bad7d8d283e0d14de653bce24c36178b4",
+  "_shrinkwrap": null,
+  "_spec": "pouchdb-update@https://registry.npmjs.org/pouchdb-update/-/pouchdb-update-1.0.8.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Marten de Vries"
+  },
+  "bugs": {
+    "url": "https://github.com/pouchdb/pouchdb-update/issues"
+  },
+  "dependencies": {
+    "couchdb-eval": "^1.0.0",
+    "couchdb-objects": "^1.0.0",
+    "couchdb-resp-completer": "^1.0.0",
+    "pouchdb-plugin-error": "^1.0.0",
+    "pouchdb-promise": "^0.0.0",
+    "pouchdb-req-http-query": "^1.0.3",
+    "promise-nodify": "^1.0.0"
+  },
+  "description": "A PouchDB plug-in that allows you to re-use your CouchDB update functions on the client side.",
+  "devDependencies": {
+    "pouchdb-plugin-helper": "^2.0.0"
+  },
+  "homepage": "https://github.com/pouchdb/pouchdb-update#readme",
+  "keywords": [
+    "couch",
+    "couchdb",
+    "design",
+    "handler",
+    "pouch",
+    "pouchdb",
+    "update"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "pouchdb-update",
+  "optionalDependencies": {},
+  "readme": "pouchdb-update\n==============\n\n[![Build Status](https://travis-ci.org/pouchdb/pouchdb-update.svg?branch=master)](https://travis-ci.org/pouchdb/pouchdb-update)\n[![Dependency Status](https://david-dm.org/pouchdb/pouchdb-update.svg)](https://david-dm.org/pouchdb/pouchdb-update)\n[![devDependency Status](https://david-dm.org/pouchdb/pouchdb-update/dev-status.svg)](https://david-dm.org/pouchdb/pouchdb-update#info=devDependencies)\n\nA PouchDB plug-in that allows you to re-use your CouchDB update\nfunctions on the client side. A browser version is available.\n\nTODO: convert the following to markdown + update + make nicer\n```rst\n.. _pouchdb-update-plug-in:\n\nPouchDB Update plug-in\n======================\n+----------------------+-------------------+\n| NodeJS package name: | `pouchdb-update`_ |\n+----------------------+-------------------+\n| Browser object name: | ``window.Update`` |\n+----------------------+-------------------+\n\nFirst, make sure you understand how update handlers work in CouchDB. A\ngood start is `the wiki entry on update handlers`_.\n\n.. _pouchdb-update: https://www.npmjs.org/package/pouchdb-update\n.. _the wiki entry on update handlers: https://wiki.apache.org/couchdb/Document_Update_Handlers\n\n.. js:function:: Update.update(updatePath[, options[, callback]])\n\n   Runs the update function specified by ``updatePath``, saving part of\n   its result in the database and returning the other part in the form\n   of a CouchDB response object.\n\n   :param string updatePath: has the following form:\n       ``\"designDocName/updateHandlerName[/docId]\"``. The last being\n       optional, like in CouchDB.\n   :param object options: a request object stub. There's also\n       ``options.withValidation``, if true, this function saves the\n       update handler result using the\n       :js:func:`Validation.validatingPut` function instead of using the\n       :js:func:`PouchDB.prototype.put` function.\n```\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouchdb/pouchdb-update.git"
+  },
+  "scripts": {
+    "build": "npm run helper -- build Update",
+    "helper": "pouchdb-plugin-helper",
+    "test": "npm run helper -- test"
+  },
+  "version": "1.0.8"
+}

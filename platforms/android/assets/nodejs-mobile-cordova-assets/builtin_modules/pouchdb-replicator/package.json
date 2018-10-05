@@ -1,0 +1,68 @@
+{
+  "_args": [
+    [
+      "pouchdb-replicator@https://registry.npmjs.org/pouchdb-replicator/-/pouchdb-replicator-2.3.7.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "pouchdb-replicator@2.3.7",
+  "_id": "pouchdb-replicator@2.3.7",
+  "_inCache": true,
+  "_location": "/pouchdb-replicator",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "pouchdb-replicator",
+    "raw": "pouchdb-replicator@https://registry.npmjs.org/pouchdb-replicator/-/pouchdb-replicator-2.3.7.tgz",
+    "rawSpec": "https://registry.npmjs.org/pouchdb-replicator/-/pouchdb-replicator-2.3.7.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/pouchdb-replicator/-/pouchdb-replicator-2.3.7.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/express-pouchdb"
+  ],
+  "_resolved": "https://registry.npmjs.org/pouchdb-replicator/-/pouchdb-replicator-2.3.7.tgz",
+  "_shasum": "131a99eb56aa99e0f4493f327467c5ed5d6afe95",
+  "_shrinkwrap": null,
+  "_spec": "pouchdb-replicator@https://registry.npmjs.org/pouchdb-replicator/-/pouchdb-replicator-2.3.7.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Marten de Vries"
+  },
+  "bugs": {
+    "url": "https://github.com/pouchdb/pouchdb-server/issues"
+  },
+  "dependencies": {
+    "equals": "^1.0.5",
+    "extend": "^3.0.0",
+    "pouchdb-plugin-error": "^1.0.1",
+    "pouchdb-promise": "^6.1.2",
+    "pouchdb-system-db": "^1.0.4",
+    "pouchdb-validation": "^1.2.1",
+    "promise-nodify": "^1.0.2",
+    "random-uuid-v4": "0.0.6"
+  },
+  "description": "A PouchDB plug-in that simulates CouchDB's replicator database daemon.",
+  "devDependencies": {},
+  "homepage": "https://github.com/pouchdb/pouchdb-server#readme",
+  "keywords": [
+    "couch",
+    "couchdb",
+    "pouch",
+    "pouchdb",
+    "replicate",
+    "replication",
+    "replicator"
+  ],
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "name": "pouchdb-replicator",
+  "optionalDependencies": {},
+  "readme": "pouchdb-replicator\n==================\n\n[![Build Status](https://travis-ci.org/pouchdb/pouchdb-server.svg?branch=master)](https://travis-ci.org/pouchdb/pouchdb-server)\n\nA PouchDB plug-in that simulates CouchDB's replicator database daemon. A\nbrowser version is available.\n\nVersion 2.0.0 onward uses prefixed replication fields (_replication_state\ninstead of replication_state). This requires a version of PouchDB in which\n[issue 2442](https://github.com/pouchdb/pouchdb/issues/2442) is solved.\n\n#TODO: rst -> md, update (the api changed a lot!), integrate & make nice.\n```rst\n\nPouchDB Replicator plug-in\n==========================\n+----------------------+-----------------------+\n| NodeJS package name: | `pouchdb-replicator`_ |\n+----------------------+-----------------------+\n| Browser object name: | ``window.Replicator`` |\n+----------------------+-----------------------+\n\nFirst, make sure you understand the CouchDB replicator database. A good\nstarting point is `its documentation`_.\n\n.. _pouchdb-replicator: https://www.npmjs.org/package/pouchdb-replicator\n.. _its documentation: http://docs.couchdb.org/en/latest/replication/replicator.html\n\n.. js:function:: Replicator.startReplicator([callback])\n\n   Starts a CouchDB-like replication 'daemon' which listens on the\n   current database like CouchDB does on the ``_replicator`` database.\n\n   This allows you to persist replications past a page refresh, and\n   provides an alternative api for :js:func:`PouchDB.replicate` and\n   friends.\n\n.. js:function:: Replicator.stopReplicator([callback])\n\n   Stops the 'daemon' that :js:func:`Replicator.startReplicator`\n   started.\n```\n\n### Source\n\nPouchDB Server and its sub-packages are distributed as a [monorepo](https://github.com/babel/babel/blob/master/doc/design/monorepo.md).\n\nFor a full list of packages, see [the GitHub source](https://github.com/pouchdb/pouchdb-server/tree/master/packages/node_modules).\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouchdb/pouchdb-server.git"
+  },
+  "version": "2.3.7"
+}

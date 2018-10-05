@@ -1,0 +1,84 @@
+{
+  "_args": [
+    [
+      "pouchdb-upsert@https://registry.npmjs.org/pouchdb-upsert/-/pouchdb-upsert-2.0.2.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "pouchdb-upsert@>=2.0.1 <2.1.0",
+  "_id": "pouchdb-upsert@2.0.2",
+  "_inCache": true,
+  "_location": "/pouchdb-upsert",
+  "_phantomChildren": {
+    "lie": "3.0.4"
+  },
+  "_requested": {
+    "name": "pouchdb-upsert",
+    "raw": "pouchdb-upsert@https://registry.npmjs.org/pouchdb-upsert/-/pouchdb-upsert-2.0.2.tgz",
+    "rawSpec": "https://registry.npmjs.org/pouchdb-upsert/-/pouchdb-upsert-2.0.2.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/pouchdb-upsert/-/pouchdb-upsert-2.0.2.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/pouchdb-find"
+  ],
+  "_resolved": "https://registry.npmjs.org/pouchdb-upsert/-/pouchdb-upsert-2.0.2.tgz",
+  "_shasum": "c746cc9945e52d8c78e42f63ade0666777996712",
+  "_shrinkwrap": null,
+  "_spec": "pouchdb-upsert@https://registry.npmjs.org/pouchdb-upsert/-/pouchdb-upsert-2.0.2.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/nolanlawson/pouchdb-upsert/issues"
+  },
+  "dependencies": {
+    "pouchdb-promise": "^5.4.3"
+  },
+  "description": "PouchDB upsert and putIfNotExists functions",
+  "devDependencies": {
+    "bluebird": "^1.0.7",
+    "browserify": "~2.36.0",
+    "chai": "~1.8.1",
+    "chai-as-promised": "~4.1.0",
+    "es3ify": "^0.2.2",
+    "istanbul": "^0.2.7",
+    "jshint": "~2.8.0",
+    "mocha": "~1.18",
+    "phantomjs-prebuilt": "^2.1.7",
+    "pouchdb-memory": "^1.0.0",
+    "uglify-js": "^2.4.13",
+    "watchify": "~0.4.1",
+    "zuul": "^3.10.1"
+  },
+  "homepage": "https://github.com/nolanlawson/pouchdb-upsert#readme",
+  "keywords": [
+    "couch",
+    "couchdb",
+    "pouch",
+    "pouchdb",
+    "putIfNotExists",
+    "upsert"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "pouchdb-upsert",
+  "optionalDependencies": {},
+  "readme": "PouchDB Upsert\n=====\n\n[![Build Status](https://travis-ci.org/pouchdb/upsert.svg)](https://travis-ci.org/pouchdb/upsert)\n\nA tiny plugin for PouchDB that provides two convenience methods:\n\n* `upsert()` - update a document, or insert a new one if it doesn't exist (\"upsert\"). Will keep retrying (forever) if it gets 409 conflicts.\n* `putIfNotExists()` - create a new document if it doesn't exist. Does nothing if it already exists.\n\nSo basically, if you're tired of manually dealing with 409s or 404s in your PouchDB code, then this is the plugin for you.\n\nInstallation\n------\n\n### Browser\n\n```\nbower install pouchdb-upsert\n```\n\nOr download from the `dist/` folder and include it after `pouchdb.js`:\n\n```html\n<script src=\"pouchdb.js\"></script>\n<script src=\"pouchdb.upsert.js\"></script>\n```\n\n### Node.js\n\n```\nnpm install pouchdb-upsert\n```\n\nThen attach it to the `PouchDB` object:\n\n```js\nvar PouchDB = require('pouchdb');\nPouchDB.plugin(require('pouchdb-upsert'));\n```\n\nAPI\n--------\n\n\n### Overview\n\n* [`db.upsert(docId, diffFunc [, callback])`](#dbupsertdocid-difffunc--callback)\n* [`db.putIfNotExists([docId, ] doc [, callback])`](#dbputifnotexistsdocid--doc--callback)\n\n### db.upsert(docId, diffFunc [, callback])\n\nPerform an upsert (update or insert) operation. If you don't specify a `callback`, then this function returns a Promise.\n\n* `docId` - the `_id` of the document.\n* `diffFunc` - function that takes the existing doc as input and returns an updated doc.\n  * If this `diffFunc` returns falsey, then the update won't be performed (as an optimization).\n  * If the document does not already exist, then `{}` will be the input to `diffFunc`.\n\n**Note:** By design, the goal of this repo is to just provide a handler for synchronized logic. ```diffFunc``` must not make asynchronous calls.\n\n##### Example 1\n\nA doc with a basic counter:\n\n```js\ndb.upsert('myDocId', function (doc) {\n  if (!doc.count) {\n    doc.count = 0;\n  }\n  doc.count++;\n  return doc;\n}).then(function (res) {\n  // success, res is {rev: '1-xxx', updated: true}\n}).catch(function (err) {\n  // error\n});\n```\n\nResulting doc (after 1 `upsert`):\n\n```js\n{\n  _id: 'myDocId',\n  _rev: '1-cefef1ec19869d9441a47021f3fd4710',\n  count: 1\n}\n```\n\nResulting doc (after 3 `upsert`s):\n\n```js\n{\n  _id: 'myDocId',\n  _rev: '3-536ef59f3ed17a181dc683a255caf1d9',\n  count: 3\n}\n```\n\n##### Example 2\n\nA `diffFunc` that only updates the doc if it's missing a certain field:\n\n```js\ndb.upsert('myDocId', function (doc) {\n  if (!doc.touched) {\n    doc.touched = true;\n    return doc;\n  }\n  return false; // don't update the doc; it's already been \"touched\"\n}).then(function (res) {\n  // success, res is {rev: '1-xxx', updated: true}\n}).catch(function (err) {\n  // error\n});\n```\n\nResulting doc:\n\n```js\n{\n  _id: 'myDocId',\n  _rev: '1-cefef1ec19869d9441a47021f3fd4710',\n  touched: true\n}\n```\n\nThe next time you try to `upsert`, the `res` will be `{rev: '1-xxx', updated: false}`. The `updated: false` indicates that the `upsert` function did not actually update the document, and the `rev` returned will be the previous winning revision.\n\n##### Example 3\n\nYou can also return a new object. The `_id` and `_rev` are added automatically:\n\n```js\ndb.upsert('myDocId', function (doc) {\n  return {thisIs: 'awesome!'};\n}).then(function (res) {\n  // success, res is {rev: '1-xxx', updated: true}\n}).catch(function (err) {\n  // error\n});\n```\n\nResulting doc:\n\n```js\n{\n  _id: 'myDocId',\n  _rev: '1-cefef1ec19869d9441a47021f3fd4710',\n  thisIs: 'awesome!'\n}\n```\n\n### db.putIfNotExists([docId, ] doc [, callback])\n\nPut a new document with the given `docId`, if it doesn't already exist. If you don't specify a `callback`, then this function returns a Promise.\n\n* `docId` - the `_id` of the document. Optional if you already include it in the `doc`\n* `doc` - the document to insert. Should contain an `_id` if `docId` is not specified\n\nIf the document already exists, then the Promise will just resolve immediately.\n\n##### Example 1\n\nPut a doc if it doesn't exist\n\n```js\ndb.putIfNotExists('myDocId', {yo: 'dude'}).then(function (res) {\n  // success, res is {rev: '1-xxx', updated: true}\n}).catch(function (err) {\n  // error\n});\n```\n\nResulting doc:\n\n```js\n{\n  _id: 'myDocId',\n  _rev: '1-cefef1ec19869d9441a47021f3fd4710',\n  yo: 'dude'\n}\n```\n\nIf you call `putIfNotExists` multiple times, then the document will not be updated the 2nd, 3rd, or 4th time (etc.).\n\nIf it's not updated, then the `res` will be `{rev: '1-xxx', updated: false}`, where `rev` is the first revision and `updated: false` indicates that it wasn't updated.\n\n##### Example 2\n\nYou can also just include the `_id` inside the document itself:\n\n```js\ndb.putIfNotExists({_id: 'myDocId', yo: 'dude'}).then(function (res) {\n  // success, res is {rev: '1-xxx', updated: true}\n}).catch(function (err) {\n  // error\n});\n```\n\nResulting doc (same as example 1):\n\n```js\n{\n  _id: 'myDocId',\n  _rev: '1-cefef1ec19869d9441a47021f3fd4710',\n  yo: 'dude'\n}\n```\n\nBreaking changes\n----\n\n* 2.0.0: breaks compatibility with PouchDB <4.0.1, see [#9](https://github.com/pouchdb/upsert/pull/9) for details.\n\n\nBuilding\n----\n    npm install\n    npm run build\n\n\nTesting\n----\n\n### In Node\n\nThis will run the tests in Node using LevelDB:\n\n    npm test\n\nYou can also check for 100% code coverage using:\n\n    npm run coverage\n\n\nIf you have mocha installed globally you can run single test with:\n```\nTEST_DB=local mocha --reporter spec --grep search_phrase\n```\n\nThe `TEST_DB` environment variable specifies the database that PouchDB should use (see `package.json`).\n\n### Automated browser tests in PhantomJS\n\n    npm run test-browser\n\n### Debugging in the browser\n\n    npm run test-local\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nolanlawson/pouchdb-upsert.git"
+  },
+  "scripts": {
+    "build": "mkdir -p dist && browserify index.js -t es3ify -s PouchUpsert -o dist/pouchdb.upsert.js && npm run min",
+    "coverage": "npm test --coverage && istanbul check-coverage --lines 100 --function 100 --statements 100 --branches 100",
+    "jshint": "jshint -c .jshintrc *.js test/test.js",
+    "min": "uglifyjs dist/pouchdb.upsert.js -mc > dist/pouchdb.upsert.min.js",
+    "test": "npm run jshint && ./bin/run-test.sh",
+    "test-browser": "zuul --no-coverage --phantom --ui mocha-bdd test/test.js",
+    "test-local": "zuul --ui mocha-bdd --no-coverage --local 9000 test/test.js",
+    "test-node": "TEST_DB=testdb,http://localhost:5984/testdb istanbul test ./node_modules/mocha/bin/_mocha test/test.js"
+  },
+  "version": "2.0.2"
+}

@@ -1,0 +1,63 @@
+{
+  "_args": [
+    [
+      "pouchdb-route@https://registry.npmjs.org/pouchdb-route/-/pouchdb-route-1.0.3.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "pouchdb-route@>=1.0.0 <2.0.0",
+  "_id": "pouchdb-route@1.0.3",
+  "_inCache": true,
+  "_location": "/pouchdb-route",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "pouchdb-route",
+    "raw": "pouchdb-route@https://registry.npmjs.org/pouchdb-route/-/pouchdb-route-1.0.3.tgz",
+    "rawSpec": "https://registry.npmjs.org/pouchdb-route/-/pouchdb-route-1.0.3.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/pouchdb-route/-/pouchdb-route-1.0.3.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/pouchdb-rewrite",
+    "/pouchdb-vhost"
+  ],
+  "_resolved": "https://registry.npmjs.org/pouchdb-route/-/pouchdb-route-1.0.3.tgz",
+  "_shasum": "e5021b768adf7e1f4750d94d950f54a9fd6b5340",
+  "_shrinkwrap": null,
+  "_spec": "pouchdb-route@https://registry.npmjs.org/pouchdb-route/-/pouchdb-route-1.0.3.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Marten de Vries"
+  },
+  "bugs": {
+    "url": "https://github.com/pouchdb/pouchdb-route/issues"
+  },
+  "dependencies": {
+    "extend": "^1.2.1",
+    "pouchdb-plugin-error": "^1.0.0"
+  },
+  "description": "Given a CouchDB request object, return the response of PouchDB's equivalent function.",
+  "devDependencies": {},
+  "homepage": "https://github.com/pouchdb/pouchdb-route#readme",
+  "keywords": [
+    "couch",
+    "couchdb",
+    "pouch",
+    "pouchdb",
+    "request",
+    "route",
+    "routing"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "pouchdb-route",
+  "optionalDependencies": {},
+  "readme": "pouchdb-route\n=============\n\nGiven a CouchDB request object, return the response of PouchDB's\nequivalent function. Written to be used for (and developed alongside)\nPouchDB plug-ins.\n\n[Website of those plug-ins](http://python-pouchdb.marten-de-vries.nl/plugins.html)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouchdb/pouchdb-route.git"
+  },
+  "version": "1.0.3"
+}

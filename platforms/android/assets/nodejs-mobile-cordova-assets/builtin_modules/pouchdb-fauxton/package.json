@@ -1,0 +1,66 @@
+{
+  "_args": [
+    [
+      "pouchdb-fauxton@https://registry.npmjs.org/pouchdb-fauxton/-/pouchdb-fauxton-0.0.6.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "pouchdb-fauxton@>=0.0.6 <0.0.7",
+  "_id": "pouchdb-fauxton@0.0.6",
+  "_inCache": true,
+  "_location": "/pouchdb-fauxton",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "pouchdb-fauxton",
+    "raw": "pouchdb-fauxton@https://registry.npmjs.org/pouchdb-fauxton/-/pouchdb-fauxton-0.0.6.tgz",
+    "rawSpec": "https://registry.npmjs.org/pouchdb-fauxton/-/pouchdb-fauxton-0.0.6.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/pouchdb-fauxton/-/pouchdb-fauxton-0.0.6.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/express-pouchdb"
+  ],
+  "_resolved": "https://registry.npmjs.org/pouchdb-fauxton/-/pouchdb-fauxton-0.0.6.tgz",
+  "_shasum": "fcfae265a3d621e913ebd035eec338a4efa92aa1",
+  "_shrinkwrap": null,
+  "_spec": "pouchdb-fauxton@https://registry.npmjs.org/pouchdb-fauxton/-/pouchdb-fauxton-0.0.6.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "email": "nolan@nolanlawson.com",
+    "name": "Nolan Lawson"
+  },
+  "bugs": {
+    "url": "https://github.com/pouchdb/pouchdb-fauxton/issues"
+  },
+  "dependencies": {},
+  "description": "Fork of couchdb-fauxton, styled for PouchDB",
+  "devDependencies": {
+    "replace": "^0.3.0"
+  },
+  "files": [
+    "www"
+  ],
+  "homepage": "https://github.com/pouchdb/pouchdb-fauxton#readme",
+  "keywords": [
+    "couchdb",
+    "express-pouchdb",
+    "fauxton",
+    "pouchdb",
+    "pouchdb-server"
+  ],
+  "license": "Apache-2.0",
+  "main": "www/index.html",
+  "name": "pouchdb-fauxton",
+  "optionalDependencies": {},
+  "readme": "pouchdb-fauxton\n====\n\nFork/modification of [couchdb-fauxton](https://github.com/apache/couchdb-fauxton) designed for [pouchdb-server](https://github.com/pouchdb/pouchdb-server) and [express-pouchdb](https://github.com/pouchdb/express-pouchdb)\n\n## Usage\n\n    npm install pouchdb-fauxton\n\nThe web files are in `www/`.\n\n## Description\n\nHow it works:\n\n1. Check out the couchdb-fauxton source from Github\n2. Apply some transformations to style it\n3. Build couchdb-fauxton from source\n4. Publish the built files to npm\n\nWhy a separate repo? It takes a while to build couchdb-fauxton, and it would be painful to build couchdb-fauxton from source just to build express-pouchdb/pouchdb-server, so by putting it in a separate module we can just deploy the built files to npm.\n\n## Development\n\nTo update this project to a later version of Fauxton, you'll need to change the `GIT_HASH` in `prepublish.sh`.\n\nTo hack on pouchdb-server/express-pouchdb while updating Fauxton, you'll just need to npm link it:\n\n    cd path/to/pouchdb-fauxton\n    npm link\n    cd path/to/express-pouchdb\n    npm link pouchdb-fauxton\n\nYou can also link `express-pouchdb` to `pouchdb-server` in this manner.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouchdb/pouchdb-fauxton.git"
+  },
+  "scripts": {
+    "prepublish": "bash prepublish.sh"
+  },
+  "version": "0.0.6"
+}

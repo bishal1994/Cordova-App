@@ -1,0 +1,70 @@
+{
+  "_args": [
+    [
+      "pouchdb-vhost@https://registry.npmjs.org/pouchdb-vhost/-/pouchdb-vhost-1.0.2.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "pouchdb-vhost@>=1.0.2 <2.0.0",
+  "_id": "pouchdb-vhost@1.0.2",
+  "_inCache": true,
+  "_location": "/pouchdb-vhost",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "pouchdb-vhost",
+    "raw": "pouchdb-vhost@https://registry.npmjs.org/pouchdb-vhost/-/pouchdb-vhost-1.0.2.tgz",
+    "rawSpec": "https://registry.npmjs.org/pouchdb-vhost/-/pouchdb-vhost-1.0.2.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/pouchdb-vhost/-/pouchdb-vhost-1.0.2.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/express-pouchdb"
+  ],
+  "_resolved": "https://registry.npmjs.org/pouchdb-vhost/-/pouchdb-vhost-1.0.2.tgz",
+  "_shasum": "511517db3c7f5fd590e3ee8b20e3ef9e89400fd6",
+  "_shrinkwrap": null,
+  "_spec": "pouchdb-vhost@https://registry.npmjs.org/pouchdb-vhost/-/pouchdb-vhost-1.0.2.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Marten de Vries"
+  },
+  "bugs": {
+    "url": "https://github.com/pouchdb/pouchdb-vhost/issues"
+  },
+  "dependencies": {
+    "pouchdb-route": "^1.0.0",
+    "promise-nodify": "^1.0.0"
+  },
+  "description": "A PouchDB plug-in that allows you to re-use your CouchDB vhost config on the client side.",
+  "devDependencies": {
+    "pouchdb-plugin-helper": "^2.0.1",
+    "pouchdb-rewrite": "^1.0.6",
+    "pouchdb-show": "^1.0.7"
+  },
+  "homepage": "https://github.com/pouchdb/pouchdb-vhost#readme",
+  "keywords": [
+    "couch",
+    "couchdb",
+    "design",
+    "pouch",
+    "pouchdb",
+    "vhost"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "pouchdb-vhost",
+  "optionalDependencies": {},
+  "readme": "pouchdb-vhost\n=============\n\n[![Build Status](https://travis-ci.org/pouchdb/pouchdb-vhost.svg?branch=master)](https://travis-ci.org/pouchdb/pouchdb-vhost)\n[![Dependency Status](https://david-dm.org/pouchdb/pouchdb-vhost.svg)](https://david-dm.org/pouchdb/pouchdb-vhost)\n[![devDependency Status](https://david-dm.org/pouchdb/pouchdb-vhost/dev-status.svg)](https://david-dm.org/pouchdb/pouchdb-vhost#info=devDependencies)\n\nA PouchDB plug-in that allows you to re-use your CouchDB vhost config on\nthe client side. A browser version is available.\n\n#TODO: update, expand, rst -> md.\n```rst\n.. _pouchdb-vhost-plug-in:\n\nPouchDB VirtualHost plug-in\n===========================\n+----------------------+------------------------+\n| NodeJS package name: | `pouchdb-vhost`_       |\n+----------------------+------------------------+\n| Browser object name: | ``window.VirtualHost`` |\n+----------------------+------------------------+\n\nThis plug-in is a single function which requires a ``PouchDB`` object as\nits first argument. Following that, these extra methods become\navailable.\n\n.. _pouchdb-vhost: https://www.npmjs.org/package/pouchdb-vhost\n\n.. js:function:: PouchDB.virtualHost(req, vhosts[, options[, callback]])\n\n.. js:function:: PouchDB.resolveVirtualHost(req, vhosts)\n```\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouchdb/pouchdb-vhost.git"
+  },
+  "scripts": {
+    "build": "npm run helper -- build VirtualHost",
+    "helper": "pouchdb-plugin-helper",
+    "test": "npm run helper -- test"
+  },
+  "version": "1.0.2"
+}

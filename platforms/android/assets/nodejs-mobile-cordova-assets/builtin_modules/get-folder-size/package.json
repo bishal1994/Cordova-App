@@ -1,0 +1,68 @@
+{
+  "_args": [
+    [
+      "get-folder-size@https://registry.npmjs.org/get-folder-size/-/get-folder-size-0.1.1.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "get-folder-size@>=0.1.1 <0.2.0",
+  "_id": "get-folder-size@0.1.1",
+  "_inCache": true,
+  "_location": "/get-folder-size",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "get-folder-size",
+    "raw": "get-folder-size@https://registry.npmjs.org/get-folder-size/-/get-folder-size-0.1.1.tgz",
+    "rawSpec": "https://registry.npmjs.org/get-folder-size/-/get-folder-size-0.1.1.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/get-folder-size/-/get-folder-size-0.1.1.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/pouchdb-size"
+  ],
+  "_resolved": "https://registry.npmjs.org/get-folder-size/-/get-folder-size-0.1.1.tgz",
+  "_shasum": "d1b84c5100bf96a7c51380ea3ce040022108a8a0",
+  "_shrinkwrap": null,
+  "_spec": "get-folder-size@https://registry.npmjs.org/get-folder-size/-/get-folder-size-0.1.1.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "email": "alexandru.vladutu@gmail.com",
+    "name": "Alexandru Vladutu"
+  },
+  "bin": {
+    "get-folder-size": "bin/get-folder-size"
+  },
+  "bugs": {
+    "url": "https://github.com/alessioalex/get-folder-size/issues"
+  },
+  "dependencies": {
+    "async": "~0.9.0",
+    "minimist": "~0.1.0"
+  },
+  "description": "Get the size of a folder by recursively iterating through all its sub(files && folders).",
+  "devDependencies": {
+    "mocha": "~1.19.0",
+    "proxyquire": "~1.0.0",
+    "should": "~3.3.2"
+  },
+  "homepage": "https://github.com/alessioalex/get-folder-size#readme",
+  "keywords": [
+    "folder",
+    "size"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "get-folder-size",
+  "optionalDependencies": {},
+  "readme": "# get-folder-size\r\n\r\nGet the size of a folder by iterating through its sub-files and folders.\r\n\r\n## Usage\r\n\r\n```js\r\ngetFolderSize(folder, [regexIgnorePattern], callback)\r\n```\r\n\r\nExample:\r\n\r\n```js\r\nvar getSize = require('get-folder-size');\r\n\r\ngetSize(myFolder, function(err, size) {\r\n  if (err) { throw err; }\r\n\r\n  console.log(size + ' bytes');\r\n  console.log((size / 1024 / 1024).toFixed(2) + ' Mb');\r\n});\r\n```\r\n\r\n## CLI tool\r\n\r\n```bash\r\nnpm i -g get-folder-size\r\nget-folder-size --folder=/my/folder --ignore=node_modules\r\n```\r\n\r\n## Size vs Size on disk\r\n\r\n[This module calculates the actual file size, and not the size on disk.](http://stackoverflow.com/questions/15470787/please-help-me-understand-size-vs-size-on-disk)\r\n\r\n## License\r\n\r\nMIT\r\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alessioalex/get-folder-size.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "version": "0.1.1"
+}

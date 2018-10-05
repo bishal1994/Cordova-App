@@ -1,0 +1,116 @@
+{
+  "_args": [
+    [
+      "pouchdb-find@https://registry.npmjs.org/pouchdb-find/-/pouchdb-find-0.10.5.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "pouchdb-find@>=0.10.4 <0.11.0",
+  "_id": "pouchdb-find@0.10.5",
+  "_inCache": true,
+  "_location": "/pouchdb-find",
+  "_phantomChildren": {
+    "lie": "3.0.4"
+  },
+  "_requested": {
+    "name": "pouchdb-find",
+    "raw": "pouchdb-find@https://registry.npmjs.org/pouchdb-find/-/pouchdb-find-0.10.5.tgz",
+    "rawSpec": "https://registry.npmjs.org/pouchdb-find/-/pouchdb-find-0.10.5.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/pouchdb-find/-/pouchdb-find-0.10.5.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/express-pouchdb"
+  ],
+  "_resolved": "https://registry.npmjs.org/pouchdb-find/-/pouchdb-find-0.10.5.tgz",
+  "_shasum": "34f285b8a56496a98f9cef2e1a1f6a0aac4eae8b",
+  "_shrinkwrap": null,
+  "_spec": "pouchdb-find@https://registry.npmjs.org/pouchdb-find/-/pouchdb-find-0.10.5.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": "",
+  "browser": {
+    "buffer": false,
+    "crypto": false
+  },
+  "bugs": {
+    "url": "https://github.com/nolanlawson/pouchdb-find/issues"
+  },
+  "dependencies": {
+    "argsarray": "0.0.1",
+    "debug": "^2.1.0",
+    "inherits": "^2.0.1",
+    "is-array": "^1.0.1",
+    "pouchdb-collate": "^1.2.0",
+    "pouchdb-extend": "^0.1.2",
+    "pouchdb-promise": "5.4.0",
+    "pouchdb-upsert": "~2.0.1",
+    "spark-md5": "2.0.2"
+  },
+  "description": "Easy-to-use query language for PouchDB",
+  "devDependencies": {
+    "bluebird": "^1.0.7",
+    "browserify": "^12.0.2",
+    "bundle-collapser": "1.2.1",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.3.0",
+    "derequire": "^2.0.0",
+    "es3ify": "^0.1.3",
+    "http-server": "~0.5.5",
+    "inherits": "^2.0.1",
+    "istanbul": "^0.2.7",
+    "istanbul-coveralls": "^1.0.3",
+    "jshint": "~2.8.0",
+    "memdown": "^1.1.0",
+    "mkdirp": "^0.5.0",
+    "mocha": "^2.4.5",
+    "phantomjs-prebuilt": "^2.1.7",
+    "pouchdb-adapter-http": "^5.4.5",
+    "pouchdb-adapter-memory": "^5.4.5",
+    "pouchdb-core": "^5.4.5",
+    "pouchdb-replication": "^5.4.5",
+    "query-string": "^2.4.2",
+    "request": "^2.36.0",
+    "sauce-connect-launcher": "^0.14.0",
+    "selenium-standalone": "^5.1.0",
+    "uglify-js": "^2.4.13",
+    "watchify": "^3.1.0",
+    "wd": "^0.2.21"
+  },
+  "homepage": "https://github.com/nolanlawson/pouchdb-find#readme",
+  "keywords": [
+    "couch",
+    "couchdb",
+    "find",
+    "mango",
+    "plugin",
+    "pouch",
+    "pouchdb",
+    "query"
+  ],
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "name": "pouchdb-find",
+  "optionalDependencies": {},
+  "readme": "PouchDB Find [![Build Status](https://travis-ci.org/nolanlawson/pouchdb-find.svg)](https://travis-ci.org/nolanlawson/pouchdb-find) [![Coverage Status](https://coveralls.io/repos/nolanlawson/pouchdb-find/badge.svg?branch=master&service=github)](https://coveralls.io/github/nolanlawson/pouchdb-find?branch=master)\n=====\n\n([Live demo](http://nolanlawson.github.io/pouchdb-find/))\n\nProvides a simple, [MongoDB-inspired](https://github.com/cloudant/mango) query language that accomplishes the same thing as the [map/reduce API](http://pouchdb.com/api.html#query_database), but with far less code.\n\nEventually this will replace PouchDB's map/reduce API entirely. You'll still be able to use map/reduce, but it will be distributed as a separate plugin.\n\n**Warning: this is beta software! It may change at anytime and could be unstable.**\n\nStatus\n---\n\nImplemented: `$lt`, `$gt`, `$lte`, `$gte`, `$eq`, `$exists`, `$type`, `$in`, `$nin`, `$all`, `$size`, `$or`, `$nor`, `$not`, `$mod`, `$regex`, `$elemMatch`, multi-field queries, multi-field indexes, multi-field sort, `'deep.fields.like.this'`, ascending and descending sort.\n\n**0.2.0**: `$and`, `$ne`\n\n**0.3.0**: `limit`, `skip`, `ddoc` when creating an index\n\n**0.4.0**: `total_rows`\n\n**0.5.0**: `$in`, `$nin`, `$all`, `$size`\n\n**0.6.0**: `$or`, `$nor`, `$not`\n\n**0.7.0**: `$elemMatch`, `$regex`\n\n**0.8.0**: Bug fixes for $and, $type, $exists\n\n**0.9.0**: Bug fixes for `$elemMatch`. Rewrite of in-memory operator\n\n**0.10.0**: Update for latest Mango spec (warnings instead of errors), update for PouchDB 5.4.0.\n\nUsage\n------\n\n#### In the browser\n\nTo use this plugin in the browser, include it after `pouchdb.js` in your HTML page:\n\n```html\n<script src=\"pouchdb.js\"></script>\n<script src=\"pouchdb.find.js\"></script>\n```\n\nYou can also download it from Bower:\n\n```\nbower install pouchdb-find\n```\n\n#### In Node.js/Browserify\n\nOr to use it in Node.js, just npm install it:\n\n```\nnpm install pouchdb-find\n```\n\nAnd then attach it to the `PouchDB` object:\n\n```js\nvar PouchDB = require('pouchdb');\nPouchDB.plugin(require('pouchdb-find'));\n```\n\nAPI\n-----\n\nThis API is modeled after [the Cloudant query API](https://docs.cloudant.com/api/cloudant-query.html), merged into CouchDB 2.0. Read that page for more details.\n\nAs with PouchDB, the entire API accepts either the callback or the Promise style.\n\n**Overview**\n\n* [`db.createIndex(index [, callback])`](#dbcreateindexindex--callback)\n* [`db.getIndexes([callback])`](#dbgetindexescallback)\n* [`db.deleteIndex(index [, callback])`](#dbdeleteindexindex--callback)\n* [`db.find(request [, callback])`](#dbfindrequest--callback)\n\n### db.createIndex(index [, callback])\n\nCreate an index if it doesn't exist, or do nothing if it already exists.\n\nExample:\n\n```js\ndb.createIndex({\n  index: {\n    fields: ['foo']\n  }\n}).then(function (result) {\n  // yo, a result\n}).catch(function (err) {\n  // ouch, an error\n});\n```\n\nThe result can be either:\n\n```js\n{\"result\": \"created\"} // index was created\n```\n\nor:\n\n```js\n{\"result\": \"exists\"} // index already exists\n```\n\nYou can also create an index on multiple fields:\n\n```js\ndb.createIndex({\n  index: {\n    fields: ['foo', 'bar', 'baz']\n  }\n});\n```\n\nOr an index on deep fields:\n\n```js\ndb.createIndex({\n  index: {\n    fields: ['person.address.zipcode']\n  }\n});\n```\n\nYou can also specify additional options, if you want more control over how your index is created:\n\n```js\ndb.createIndex({\n  index: {\n    fields: ['foo', 'bar'],\n    name: 'myindex',\n    ddoc: 'mydesigndoc'\n    type: 'json',\n  }\n});\n```\n\n**Options**\n\n* `fields` is a list of fields to index\n* `name` (optional) name of the index, auto-generated if you don't include it\n* `ddoc` (optional) design document name (i.e. the part after `'_design/'`, auto-generated if you don't include it\n* `type` (optional) only supports `'json'`, and it's also the default\n\n### db.getIndexes([callback])\n\nGet a list of all the indexes you've created. Also tells you about the special `_all_docs` index, i.e. the default index on the `_id` field.\n\nExample:\n\n```js\ndb.getIndexes().then(function (result) {\n  // yo, a result\n}).catch(function (err) {\n  // ouch, an error\n});\n```\n\nExample result:\n\n```js\n{\n  \"indexes\": [\n    {\n      \"ddoc\": null,\n      \"name\": \"_all_docs\",\n      \"type\": \"special\",\n      \"def\": {\n        \"fields\": [\n          {\n            \"_id\": \"asc\"\n          }\n        ]\n      }\n    },\n    {\n      \"ddoc\": \"_design/idx-0f3a6f73110868266fa5c688caf8acd3\",\n      \"name\": \"idx-0f3a6f73110868266fa5c688caf8acd3\",\n      \"type\": \"json\",\n      \"def\": {\n        \"fields\": [\n          {\n            \"foo\": \"asc\"\n          },\n          {\n            \"bar\": \"asc\"\n          }\n        ]\n      }\n    }\n  ]\n}\n```\n\n### db.deleteIndex(index [, callback])\n\nDelete an index and clean up any leftover data on the disk.\n\n**Options**\n\n* `index` Definition of an index to delete. You can pass it in exactly as you received it from the `getIndexes()` API. You cannot delete the built-in `_all_docs` index.\n\nExample:\n\n```js\ndb.deleteIndex({\n  \"ddoc\": \"_design/idx-0f3a6f73110868266fa5c688caf8acd3\",\n  \"name\": \"idx-0f3a6f73110868266fa5c688caf8acd3\",\n  \"type\": \"json\",\n  \"def\": {\n    \"fields\": [\n      {\n        \"foo\": \"asc\"\n      },\n      {\n        \"bar\": \"asc\"\n      }\n    ]\n  }\n}).then(function (result) {\n  // yo, a result\n}).catch(function (err) {\n  // ouch, an error\n});\n```\n\nNotice that you don't need to provide a `_rev`! The design doc is also deleted.\n\n### db.find(request [, callback])\n\nQuery the API to find some documents.\n\nExample:\n\n\n```js\ndb.find({\n  selector: {name: 'Mario'},\n  fields: ['_id', 'name'],\n  sort: ['name']\n}).then(function (result) {\n  // yo, a result\n}).catch(function (err) {\n  // ouch, an error\n});\n```\n\nExample result:\n\n```js\n{\n  \"docs\": [\n    {\n      \"_id\": \"mario\",\n      \"name\": \"Mario\"\n    }\n  ]\n}\n```\n\n**Options**;\n\n* `selector` Defines a selector to filter the results. Required.\n  * `$lt` Match fields \"less than\" this one.\n  * `$gt` Match fields \"greater than\" this one.\n  * `$lte` Match fields \"less than or equal to\" this one.\n  * `$gte` Match fields \"greater than or equal to\" this one.\n  * `$eq` Match fields equal to this one.\n  * `$ne` Match fields not equal to this one.\n  * `$exists` True if the field should exist, false otherwise.\n  * `$type` One of: \"null\", \"boolean\", \"number\", \"string\", \"array\", or \"object\".\n  * `$in` Matches if all the selectors in the array match.\n  * `$and` Matches if all the selectors in the array match.\n  * `$nin` The document field must not exist in the list provided.\n  * `$all` Matches an array value if it contains all the elements of the argument array.\n  * `$size` Special condition to match the length of an array field in a document.\n  * `$or` Matches if any of the selectors in the array match. All selectors must use the same index.\n  * `$nor` Matches if none of the selectors in the array match.\n  * `$not` Matches if the given selector does not match.\n  * `$mod` Matches documents where (field % Divisor == Remainder) is true, and only when the document field is an integer.\n  * `$regex` A regular expression pattern to match against the document field.\n  * `$elemMatch` Matches all documents that contain an array field with at least one element that matches all the specified query criteria.\n\n* `fields` (Optional) Defines a list of fields that you want to receive. If omitted, you get the full documents.\n* `sort` (Optional) Defines a list of fields defining how you want to sort. Note that sorted fields also have to be selected in the `selector`.\n* `limit` (Optional) Maximum number of documents to return.\n* `skip` (Optional) Number of docs to skip before returning.\n\nIf there's no index that matches your `selector`/`sort`, then this method will throw an error. This is a good thing, because it means it's pretty much impossible to write a slow query. :)\n\nThe best index will be chosen automatically. If you want to see the query plan for your query, then turn on [debugging](#debugging).\n\nSee [the Cloudant docs](https://docs.cloudant.com/api.html#cloudant-query) for more details.\n\nExamples\n----\n\n### Equals\n\nFind all docs where `doc.name === 'Mario'`:\n\n```js\ndb.find({\n  selector: {name: {$eq: 'Mario'}}\n});\n```\n\nThis is equivalent to:\n\n```js\ndb.find({\n  selector: {name: 'Mario'}\n});\n```\n\n### Multi-selectors\n\nFind all docs where `doc.series === 'Mario'` and `doc.debut > 1990`:\n\n```js\ndb.find({\n  selector: {\n    series: 'Mario',\n    debut: { $gt: 1990 }\n  }\n});\n```\n\nThis is equivalent to:\n\n```js\ndb.find({\n  selector: {\n    $and: [\n      { series: 'Mario' },\n      { debut: { $gt: 1990 } }\n    ]\n  }\n});\n```\n\n### Sorting\n\nReturn all docs sorted by `doc.debut` descending:\n\n```js\ndb.find({\n  selector: {\n    debut: {'$exists': true}\n  },\n  sort: [{debut: 'desc'}]\n});\n```\n\nFor more examples, refer to [Cloudant's `_find` documentation](https://docs.cloudant.com/api.html#finding-documents-using-an-index).\n\n\nWith a remote database\n----\n\nOver HTTP, this plugin currently works with Cloudant and CouchDB 2.0. Cloudant is the reference implementation, so the API should be the same.\n\nPouchDB Server also has this API, since it includes this very plugin by default.\n\nDebugging\n----\n\nJust call:\n\n```js\nPouchDB.debug.enable('pouchdb:find')\n```\n\nThen `pouchdb-find` will start logging some debug information to the console. This can be useful if, for instance, you want to see the query plan that is being used to execute your queries.\n\nKudos\n---\n\nThanks very much to [@garrensmith](https://github.com/garrensmith) for implementing all the new features from 0.4.0 to 0.6.0!\n\nHow to contribute to this thing\n----------\n\nInstructions are in [CONTRIBUTING.md](https://github.com/nolanlawson/pouchdb-find/blob/master/CONTRIBUTING.md).\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nolanlawson/pouchdb-find.git"
+  },
+  "scripts": {
+    "browserify": "browserify . -s pouchdbFind -p bundle-collapser/plugin | ./bin/es3ify.js | derequire > dist/pouchdb.find.js",
+    "build": "mkdirp dist && npm run browserify && npm run min",
+    "coverage": "bash bin/test-coverage.sh && istanbul check-coverage --lines 100 --function 100 --statements 100 --branches 100",
+    "dev": "browserify test/test.js > test/test-bundle.js && npm run dev-server",
+    "dev-server": "node ./bin/dev-server.js",
+    "install-couch": "sh ./bin/run-couch-master-on-travis.sh && sh ./bin/enable-couchdb-cors.sh",
+    "jshint": "jshint -c .jshintrc lib bin test",
+    "min": "uglifyjs dist/pouchdb.find.js -mc > dist/pouchdb.find.min.js",
+    "report-coverage": "npm run coverage && istanbul-coveralls --no-rm",
+    "test": "npm run jshint && bash ./bin/run-test.sh",
+    "test-browser": "node ./bin/test-browser.js",
+    "test-node": "bash ./bin/test-node.sh"
+  },
+  "version": "0.10.5"
+}

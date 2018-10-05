@@ -1,0 +1,70 @@
+{
+  "_args": [
+    [
+      "pouchdb-plugin-error@https://registry.npmjs.org/pouchdb-plugin-error/-/pouchdb-plugin-error-1.0.1.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "pouchdb-plugin-error@>=1.0.0 <2.0.0",
+  "_id": "pouchdb-plugin-error@1.0.1",
+  "_inCache": true,
+  "_location": "/pouchdb-plugin-error",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "pouchdb-plugin-error",
+    "raw": "pouchdb-plugin-error@https://registry.npmjs.org/pouchdb-plugin-error/-/pouchdb-plugin-error-1.0.1.tgz",
+    "rawSpec": "https://registry.npmjs.org/pouchdb-plugin-error/-/pouchdb-plugin-error-1.0.1.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/pouchdb-plugin-error/-/pouchdb-plugin-error-1.0.1.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/couchdb-eval",
+    "/couchdb-render",
+    "/couchdb-resp-completer",
+    "/pouchdb-auth",
+    "/pouchdb-list",
+    "/pouchdb-replicator",
+    "/pouchdb-req-http-query",
+    "/pouchdb-rewrite",
+    "/pouchdb-route",
+    "/pouchdb-security",
+    "/pouchdb-show",
+    "/pouchdb-system-db",
+    "/pouchdb-system-db/pouchdb-security",
+    "/pouchdb-update",
+    "/pouchdb-validation"
+  ],
+  "_resolved": "https://registry.npmjs.org/pouchdb-plugin-error/-/pouchdb-plugin-error-1.0.1.tgz",
+  "_shasum": "c72f06014124a9fa9038fc8eda27c58b348805ca",
+  "_shrinkwrap": null,
+  "_spec": "pouchdb-plugin-error@https://registry.npmjs.org/pouchdb-plugin-error/-/pouchdb-plugin-error-1.0.1.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Marten de Vries"
+  },
+  "bugs": {
+    "url": "https://github.com/pouchdb/pouchdb-plugin-error/issues"
+  },
+  "dependencies": {},
+  "description": "A PouchDB-like error object, for use by plug-ins.",
+  "devDependencies": {},
+  "homepage": "https://github.com/pouchdb/pouchdb-plugin-error#readme",
+  "keywords": [
+    "error",
+    "plugin",
+    "pouch",
+    "pouchdb"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "pouchdb-plugin-error",
+  "optionalDependencies": {},
+  "readme": "pouchdb-plugin-error\n====================\n\nA PouchDB-like error object, for use by plug-ins.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouchdb/pouchdb-plugin-error.git"
+  },
+  "version": "1.0.1"
+}

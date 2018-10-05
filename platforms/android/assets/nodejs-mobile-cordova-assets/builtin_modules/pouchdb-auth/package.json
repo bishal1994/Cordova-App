@@ -1,0 +1,82 @@
+{
+  "_args": [
+    [
+      "pouchdb-auth@https://registry.npmjs.org/pouchdb-auth/-/pouchdb-auth-2.1.1.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "pouchdb-auth@>=2.1.1 <3.0.0",
+  "_id": "pouchdb-auth@2.1.1",
+  "_inCache": true,
+  "_location": "/pouchdb-auth",
+  "_phantomChildren": {
+    "lie": "3.0.4"
+  },
+  "_requested": {
+    "name": "pouchdb-auth",
+    "raw": "pouchdb-auth@https://registry.npmjs.org/pouchdb-auth/-/pouchdb-auth-2.1.1.tgz",
+    "rawSpec": "https://registry.npmjs.org/pouchdb-auth/-/pouchdb-auth-2.1.1.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/pouchdb-auth/-/pouchdb-auth-2.1.1.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/express-pouchdb"
+  ],
+  "_resolved": "https://registry.npmjs.org/pouchdb-auth/-/pouchdb-auth-2.1.1.tgz",
+  "_shasum": "5f4e2216f424de1d5ca50f4b4ceb7625cd589654",
+  "_shrinkwrap": null,
+  "_spec": "pouchdb-auth@https://registry.npmjs.org/pouchdb-auth/-/pouchdb-auth-2.1.1.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Marten de Vries"
+  },
+  "bugs": {
+    "url": "https://github.com/pouchdb/pouchdb-auth/issues"
+  },
+  "dependencies": {
+    "base64url": "^1.0.5",
+    "couchdb-calculate-session-id": "^1.1.0",
+    "crypto-lite": "^0.1.0",
+    "pouchdb-bulkdocs-wrapper": "^1.0.0",
+    "pouchdb-plugin-error": "^1.0.0",
+    "pouchdb-promise": "^5.4.0",
+    "pouchdb-req-http-query": "^1.0.2",
+    "pouchdb-system-db": "^1.0.0",
+    "pouchdb-validation": "^1.1.0",
+    "pouchdb-wrappers": "^1.0.0",
+    "promise-nodify": "^1.0.0",
+    "secure-random": "^1.1.1"
+  },
+  "description": "A PouchDB plug-in that simulates CouchDB's authentication daemon. Includes a users db that functions like CouchDB's.",
+  "devDependencies": {
+    "extend": "^3.0.0",
+    "pouchdb-plugin-helper": "^3.0.0"
+  },
+  "homepage": "https://github.com/pouchdb/pouchdb-auth#readme",
+  "keywords": [
+    "auth",
+    "authentication",
+    "couch",
+    "couchdb",
+    "pouch",
+    "pouchdb",
+    "users"
+  ],
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "name": "pouchdb-auth",
+  "optionalDependencies": {},
+  "readme": "# pouchdb-auth\n\n[![Build Status](https://travis-ci.org/pouchdb/pouchdb-auth.svg?branch=master)](https://travis-ci.org/pouchdb/pouchdb-auth)\n[![Dependency Status](https://david-dm.org/pouchdb/pouchdb-auth.svg)](https://david-dm.org/pouchdb/pouchdb-auth)\n[![devDependency Status](https://david-dm.org/pouchdb/pouchdb-auth/dev-status.svg)](https://david-dm.org/pouchdb/pouchdb-auth#info=devDependencies)\n\n> A PouchDB plug-in that simulates CouchDB's authentication daemon.\n\nIncludes a users db that functions like CouchDB's. Also works in the browser.\n\n## Usage\n\n```\n# npm install --save pouchdb-auth\nvar PouchDB = require('pouchdb')\nvar Auth = require('pouchdb-auth')\nPouchDB.plugin(Auth)\n\nvar db = new PouchDB('_users')\n```\n\n`pouchdb-auth` adds 3 methods to the PouchDB API\n\n1. `db.hashAdminPasswords(admins)`\n2. `db.generateSecret()`\n3. `db.useAsAuthenticationDB()`\n4. `db.stopUsingAsAuthenticationDB`\n\n\n### db.hashAdminPasswords(admins[, options[, callback]])\n\n`admins` is an object in the form of `'username': 'password'`.\n\nReturns a promise, unless `callback` is passed.\nResolves with object with all values being hashed.\n\n```js\ndb.hashAdminPasswords({ 'admin': 'secret' }\n.then(function (hashed) {\n  // hashed.admin now looks like '-pbkdf2-243ba92f8f575c70d3d607b408…21731411301c11cb1d81481f51d1108,10'\n})\n```\n\n- `options.iterations`: The number of pbkdf2 iterations to use when hashing the\n  passwords. Defaults to CouchDB's 10.\n\nSee below (\"How it works\") for more background information\n\n### db.generateSecret()\n\nGenerates a secret that you can use for useAsAuthenticationDB(). This is a\nsynchronous method.\n\n### db.useAsAuthenticationDB([options[, callback]])\n\nThis function transforms the database on which it is called into an\nauthentication database. It does that by installing strict validation\nrules, making sure passwords are hashed in user documents before\nthey're written into the db, and by adding the following methods\nto the db (documented below):\n\n- `db.signUp(username, password[, options[, callback]])`\n- `db.logIn(username, password[, options[, callback]])`\n- `db.logOut([options[, callback]])`\n- `db.session([options[, callback]])`\n- `db.multiUserLogIn([callback])`\n- `db.multiUserSession([sessionID[, callback]])`\n\n- `options.isOnlineAuthDB`: If `true`, password hashing, keeping\n  track of the session and doc validation is all handled by the\n  CouchDB on the other end. Defaults to `true` if called on an http\n  database, otherwise `false`. An online db currently doesn't provide the\n  `db.multiUser*` methods.\n- `options.timeout`: By default, a session is valid for 600 seconds. If you want\n  to renew the session, call ``db.session()`` within this time window, or set\n  the expiration time higher (or to 0, which sets it to infinite), by changing\n  this value.\n- `options.secret`: To calculate the session keys, a secret is necessary. You\n  can pass in your own using this parameter. Otherwise, a random one is\n  generated for the authentication db.\n- `options.admins` (optional): Allows to pass in an admins object that looks\n  like the one defined in CouchDB's `_config`.\n- `options.iterations`: The number of pbkdf2 iterations to use when hashing the\n  passwords. Defaults to CouchDB's 10.\n\nReturns a promise, unless `callback` is passed. Resolves with nothing.\n\n```js\ndb.useAsAuthenticationDB()\n.then(function () {\n  // db is now ready to be used as users database, with all behavior\n  // of CouchDB's `_users` database applied\n\n})\n```\n\n### db.stopUsingAsAuthenticationDB()\n\nRemoves custom behavior and methods applied by `db.useAsAuthenticationDB()`.\n\nReturns nothing. This is a synchronous method.\n\n```js\ndb.stopUsingAsAuthenticationDB();\n```\n\n\n### db.signUp(username, password[, options[, callback]])\n\nA small helper function: pretty much equivalent to saving a\nCouchDB user document with the passed in values in the database\nusing PouchDB.\n\n`username` and `password` are both strings and required.\n\n`options.roles` (optional) is an array of strings with roles\nnames, used for authorizing access to databases, see \"How it\nworks\" below.\n\nReturns a promise, unless `callback` is passed. Resolves with\n[put](http://pouchdb.com/api.html#create_document) response.\n\n```js\ndb.signUp('john', 'secret')\n.then(function (response) {\n  // {\n  //   ok: true,\n  //   id: 'org.couchdb.user:john',\n  //   rev: '1-A6157A5EA545C99B00FF904EEF05FD9F'\n  // }\n})\n```\n\n### db.logIn(username, password[, callback])\n\nTries to get the user specified by `username` from the database,\nif its `password` (after hashing) matches, the user is considered\nto be logged in. This fact is then stored in memory, allowing the\nother methods (`db.logOut` & `db.session`) to use it later on.\n\nReturns a promise, unless `callback` is passed. Resolves with `name`\nand `roles`. If username and/or password is incorrect, rejects with\n`unauthorized` error.\n\n```js\ndb.logIn('john', 'secret')\n.then(function (response) {\n  // {\n  //   ok: true,\n  //   name: 'john',\n  //   roles: ['roles', 'here']\n  // }\n});\n\ndb.logIn('john', 'wrongsecret')\n.catch(function (error) {\n  // error.name === `unauthorized`\n  // error.status === 401\n  // error.message === 'Name or password is incorrect.'\n});\n```\n\n\n### db.logOut(callback)\n\nRemoves the current session.\n\nReturns a promise that resolves to `{ok: true}`, to match a CouchDB logout. This\nmethod never fails, it works even if there is no session.\n\n```js\ndb.logOut()\n.then(function (resp) {\n  // { ok: true }\n});\n```\n\n### db.session([callback])\n\nReads the current session from the db.\n\nReturns a promise, unless `callback` is passed. Note that\n`db.session()` does not return an error if the current\nuser has no valid session, just like CouchDB returns a `200` status to a\n`GET /_session` request. To determine whether the current user has a valid\nsession or not, check if `response.userCtx.name` is set.\n\n```js\ndb.session()\n.then(function (response) {\n  // {\n  //   \"ok\": true,\n  //   \"userCtx\": {\n  //     \"name\": null,\n  //     \"roles\": [],\n  //   },\n  //   \"info\": {\n  //     \"authentication_handlers\": [\"api\"]\n  //   }\n  // }\n})\n```\n\n### db.multiUserLogIn(username, password[, callback])\n\nThis works the same as ``db.logIn()``, but returns an extra property\n(``sessionID``), so multiple sessions can be managed at the same time. You pass\nin this property to the ``db.multiUserSession`` function as a reminder which\nsession you are talking about.\n\nAs a matter of fact, the normal functions are just a small wrapper over the\n``db.multiUser*`` functions. They just store and re-use the last sessionID\ninternally.\n\n```js\ndb.multiUserLogIn('john', 'secret')\n.then(response) {\n  // {\n  //   ok: true,\n  //   name: 'username',\n  //   roles: ['roles', 'here'],\n  //   sessionID: 'amFuOjU2Njg4MkI5OkEK3-1SRseo6yNRHfk-mmk6zOxm'\n  // }\n});\n```\n\n### db.multiUserSession(sessionID[, callback])\n\nThe same as ``db.session()``, but supporting multiple sessions at the same time.\nPass in a ``sessionID`` obtained from a ``db.multiUserLogIn()`` call. If\n``sessionID`` is not given, a normal non-logged in session will be returned.\nA new updated ``sessionID`` is generated and included to prevent the session\nfrom expiring.\n\n```js\ndb.multiUserSession('amFuOjU2Njg4MkI5OkEK3-1SRseo6yNRHfk-mmk6zOxm')\n.then(response) {\n  // {\n  //   \"ok\": true,\n  //   \"userCtx\": {\n  //     \"name\": 'john',\n  //     \"roles\": [],\n  //   },\n  //   \"info\": {\n  //     \"authentication_handlers\": [\"api\"]\n  //   },\n  //   sessionID: 'some-new-session-id'\n  // }\n}\n```\n\n### db.multiUserLogOut()\n\nContrary to what you might expect, this method **does not exist**. Multi user\nlogouts are as simple as just forgetting the ``sessionID``. That is the only\nthing the ``db.logOut()`` method does internally. No other state is kept.\n\n## How it works\n\nFirst, make sure you understand how the `_users` database works in\nCouchDB. A good start is [the CouchDB documentation on the\nauthentication database](http://docs.couchdb.org/en/latest/intro/security.html#authentication-database)\n\nAdmin users are not stored in the `_users` database, but in the `[admins]` section\nof couch.ini, see http://docs.couchdb.org/en/latest/config/auth.html\n\nWhen setting passwords clear text, CouchDB will automatically overwrite\nthem with hashed passwords on restart. the ``hashAdminPasswords`` function\ncan be used to emulate that behaviour with PouchDB-Auth.\n\nThe `roles` property of `_users` documents is used by CouchDB to determine access to databases,\nwhich can be set in the `_security` setting of each database. There are now default roles by CouchDB,\nso you are free to set your own (With the excepion of system roles starting with a `_`). The\n`roles` property can only be changed by CouchDB admin users. More on authorization in CouchDB:\nhttp://docs.couchdb.org/en/latest/intro/security.html#authorization\n\n### License\n\nApache-2.0\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouchdb/pouchdb-auth.git"
+  },
+  "scripts": {
+    "build": "npm run helper -- build Auth",
+    "helper": "pouchdb-plugin-helper",
+    "test": "npm run helper -- test"
+  },
+  "version": "2.1.1"
+}

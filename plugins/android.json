@@ -1,0 +1,21 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.mav.testApp1"
+    },
+    "nodejs-mobile-cordova": {
+      "PACKAGE_NAME": "com.mav.testApp1"
+    },
+    "cordova-plugin-console": {
+      "PACKAGE_NAME": "com.mav.testApp1"
+    }
+  },
+  "dependent_plugins": {}
+}

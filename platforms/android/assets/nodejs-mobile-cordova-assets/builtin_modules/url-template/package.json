@@ -1,0 +1,71 @@
+{
+  "_args": [
+    [
+      "url-template@https://registry.npmjs.org/url-template/-/url-template-2.0.8.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "url-template@>=2.0.6 <2.1.0",
+  "_id": "url-template@2.0.8",
+  "_inCache": true,
+  "_location": "/url-template",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "url-template",
+    "raw": "url-template@https://registry.npmjs.org/url-template/-/url-template-2.0.8.tgz",
+    "rawSpec": "https://registry.npmjs.org/url-template/-/url-template-2.0.8.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/url-template/-/url-template-2.0.8.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/ghreleases"
+  ],
+  "_resolved": "https://registry.npmjs.org/url-template/-/url-template-2.0.8.tgz",
+  "_shasum": "fc565a3cccbff7730c775f5641f9555791439f21",
+  "_shrinkwrap": null,
+  "_spec": "url-template@https://registry.npmjs.org/url-template/-/url-template-2.0.8.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "email": "b.l.stein@gmail.com",
+    "name": "Bram Stein",
+    "url": "http://www.bramstein.com"
+  },
+  "bugs": {
+    "url": "https://github.com/bramstein/url-template/issues"
+  },
+  "decription": "A URI template implementation (RFC 6570 compliant)",
+  "dependencies": {},
+  "description": "This is a simple URI template implementation following the [RFC 6570 URI Template specification](http://tools.ietf.org/html/rfc6570). The implementation supports all levels defined in the specification and is extensively tested.",
+  "devDependencies": {
+    "expect.js": "=0.2.0",
+    "mocha": "=1.6.0"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "homepage": "https://github.com/bramstein/url-template#readme",
+  "keywords": [
+    "rfc 6570",
+    "uri",
+    "uri template",
+    "uri-template",
+    "url",
+    "url template",
+    "url-template"
+  ],
+  "license": "BSD",
+  "main": "./lib/url-template.js",
+  "name": "url-template",
+  "optionalDependencies": {},
+  "readme": "## A JavaScript URI template implementation\n\nThis is a simple URI template implementation following the [RFC 6570 URI Template specification](http://tools.ietf.org/html/rfc6570). The implementation supports all levels defined in the specification and is extensively tested.\n\n## Installation\n\nFor use with Node.js you can install it through npm:\n\n    $ npm install url-template\n\nIf you want to use it in a browser, copy `lib/url-template.js` into your project and use the global `urltemplate` instance. Alternatively you can use [Bower](http://bower.io/) to install this package:\n\n    $ bower install url-template\n\n## Example\n\n    var template = require('url-template');\n\n    ...\n\n    var emailUrl = template.parse('/{email}/{folder}/{id}');\n\n    // Returns '/user@domain/test/42'\n    emailUrl.expand({\n      email: 'user@domain',\n      folder: 'test',\n      id: 42\n    });\n\n## A note on error handling and reporting\n\nThe RFC states that errors in the templates could optionally be handled and reported to the user. This implementation takes a slightly different approach in that it tries to do a best effort template expansion and leaves erroneous expressions in the returned URI instead of throwing errors. So for example, the incorrect expression `{unclosed` will return `{unclosed` as output. The leaves incorrect URLs to be handled by your URL library of choice.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bramstein/url-template.git"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "version": "2.0.8"
+}

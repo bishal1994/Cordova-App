@@ -1,0 +1,74 @@
+{
+  "_args": [
+    [
+      "pouchdb-security@https://registry.npmjs.org/pouchdb-security/-/pouchdb-security-2.3.7.tgz",
+      "/home/hottab/Desktop/pouchServers"
+    ]
+  ],
+  "_from": "pouchdb-security@2.3.7",
+  "_id": "pouchdb-security@2.3.7",
+  "_inCache": true,
+  "_location": "/pouchdb-security",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "pouchdb-security",
+    "raw": "pouchdb-security@https://registry.npmjs.org/pouchdb-security/-/pouchdb-security-2.3.7.tgz",
+    "rawSpec": "https://registry.npmjs.org/pouchdb-security/-/pouchdb-security-2.3.7.tgz",
+    "scope": null,
+    "spec": "https://registry.npmjs.org/pouchdb-security/-/pouchdb-security-2.3.7.tgz",
+    "type": "remote"
+  },
+  "_requiredBy": [
+    "/express-pouchdb"
+  ],
+  "_resolved": "https://registry.npmjs.org/pouchdb-security/-/pouchdb-security-2.3.7.tgz",
+  "_shasum": "68d3cc26555ed48721222dedd13eef75e65201a6",
+  "_shrinkwrap": null,
+  "_spec": "pouchdb-security@https://registry.npmjs.org/pouchdb-security/-/pouchdb-security-2.3.7.tgz",
+  "_where": "/home/hottab/Desktop/pouchServers",
+  "author": {
+    "name": "Marten de Vries"
+  },
+  "bugs": {
+    "url": "https://github.com/pouchdb/pouchdb-server/issues"
+  },
+  "dependencies": {
+    "extend": "^3.0.0",
+    "pouchdb-bulkdocs-wrapper": "^1.0.2",
+    "pouchdb-changeslike-wrapper": "^1.0.1",
+    "pouchdb-plugin-error": "^1.0.1",
+    "pouchdb-promise": "^6.1.2",
+    "pouchdb-req-http-query": "^1.0.3",
+    "pouchdb-wrappers": "^1.3.6",
+    "promise-nodify": "^1.0.2"
+  },
+  "description": "PouchDB database access restrictions using a security document.",
+  "devDependencies": {},
+  "homepage": "https://github.com/pouchdb/pouchdb-server#readme",
+  "keywords": [
+    "access",
+    "couch",
+    "couchdb",
+    "offline",
+    "online",
+    "pouch",
+    "pouchdb",
+    "security"
+  ],
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "name": "pouchdb-security",
+  "optionalDependencies": {},
+  "readme": "pouchdb-security\n================\n\n[![Build Status](https://travis-ci.org/pouchdb/pouchdb-server.svg?branch=master)](https://travis-ci.org/pouchdb/pouchdb-server)\n\nPouchDB database access restrictions using a security document. Like\n_security in CouchDB (and when used on an http database, that url is\nchecked.)\n\n#TODO: port docs below to markdown, expand and update (the wrapper functions\n#need to be documented!)\n```reStructuredText\n.. _pouchdb-security-plug-in:\n\nPouchDB Security plug-in\n========================\n+----------------------+---------------------+\n| NodeJS package name: | `pouchdb-security`_ |\n+----------------------+---------------------+\n| Browser object name: | ``window.Security`` |\n+----------------------+---------------------+\n\nFirst, make sure you understand how security objects work in CouchDB.\nA good start is `their HTTP documentation`_.\n\n.. _pouchdb-security: https://www.npmjs.org/package/pouchdb-security\n.. _their HTTP documentation: http://docs.couchdb.org/en/latest/api/database/security.html\n\n.. js:function:: Security.putSecurity(secObj[, callback])\n\n   Equivalent to PUTting a document to /db/_security in CouchDB.\n   Replaces the current security object for the database with the given\n   one.\n\n   :param object secObj: For example:\n\n                         .. code-block:: javascript\n\n                            {\n                              \"admins\": {\n                                \"names\": [\n                                  \"your_name\"\n                                ],\n                                \"roles\": []\n                              },\n                              \"members\": {\n                                \"names\": [],\n                                \"roles\": [\n                                  \"app_users\"\n                                ]\n                              }\n                            }\n\n   :returns: ``{ok: true}``\n\n.. js:function:: Security.getSecurity([callback])\n\n   Equivalent to going to /db/_security in CouchDB.\n\n   :returns: the security object for the current database. ({} when none\n             has been set, like in CouchDB.)\n```\n\n### Source\n\nPouchDB Server and its sub-packages are distributed as a [monorepo](https://github.com/babel/babel/blob/master/doc/design/monorepo.md).\n\nFor a full list of packages, see [the GitHub source](https://github.com/pouchdb/pouchdb-server/tree/master/packages/node_modules).\n\n\n# License\nApache-2.0\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouchdb/pouchdb-server.git"
+  },
+  "scripts": {
+    "build": "npm run helper -- build Security",
+    "helper": "pouchdb-plugin-helper",
+    "test": "npm run helper -- test"
+  },
+  "version": "2.3.7"
+}
