@@ -5,25 +5,26 @@
   var ENTER_KEY = 13;
   var newTodoDom = document.getElementById('new-todo');
   var syncDom = document.getElementById('sync-wrapper');
+  var exists = false;
 
   // EDITING STARTS HERE (you dont need to edit anything above this line)
 
-  var db = new PouchDB('todos', {revs_limits: 1});
-  var remotePouch = 'http://localhost:3005/todos';
-  //var remoteCouch = 'https://cebu.ml:6984/bishal';
-
+  var db = new PouchDB('todos');
+  var remotePouch = 'http://localhost:3002/todos';
+  var remoteCouch = 'http://admin:password@localhost:5984/todos';
+  
   db.changes({
   since: 'now',
   live: true
   }).on('change', showTodos);
-
 
   // We have to create a new todo document and enter it in the database
   function addTodo(text) {
   var todo = {
     _id: text,
     title: text,
-    completed: false
+    completed: false,
+    secured : false
   };
   db.put(todo).then(function callback(result) {
     console.log("All set");
@@ -39,10 +40,17 @@
   db.allDocs({include_docs: true, descending: true}).then(function(doc) {
     console.log(doc);
     redrawTodosUI(doc.rows);
+    
   }).catch(function(err){
     console.log(err)
   });
- }
+  db.viewCleanup().then(function (result) {
+    console.log("clean up done ");
+    console.log(result);
+  }).catch(function (err) {
+    console.log(err);
+  });
+ } 
 
   function checkboxChanged(todo, event) {
   todo.completed = event.target.checked;
@@ -67,11 +75,47 @@
   // Initialise a sync with the remote server
   function sync() {
   syncDom.setAttribute('data-sync-state', 'syncing');
-  var opts = {live: true , retry :true};
-  //db.replicate.to(remoteCouch, opts, syncError);
-  //db.replicate.from(remoteCouch, opts, syncError);
-  db.sync(remotePouch, opts, syncError);
-  //db.sync(remoteCouch, opts, syncError);
+  var opts = {live: true,retry: true};
+  if(remoteCouch){
+    exists = true;
+  }else{
+    exists = false;
+  }
+
+  if (exists) {
+     /*db.transform({
+       incoming: function (doc) {
+        doc['secured']=true;
+         return doc;
+       },
+       outgoing: function (doc) {
+        doc['secured']=true;
+         return doc;
+       }
+     });*/
+     db.allDocs({include_docs: true, descending: true}).then(function(doc) {
+      console.log(doc);
+      var eachDoc =doc.rows;
+      eachDoc.forEach(function(todo){
+        var  docs = todo.doc;
+        if(docs.secured!==true){
+        docs.secured = true;
+        console.log("Remote Couch is online");
+        console.log(docs);
+        }
+        db.put(docs);
+      })
+     }).catch(function(err){
+     console.log(err);
+     }); 
+     db.sync(remoteCouch,opts).then(function(err){
+       console.log(err);
+     })
+      
+     db.sync(remotePouch,opts,syncError);
+    }else{  
+    db.sync(remotePouch, opts, syncError);
+    }
 }
 
   // EDITING STARTS HERE (you dont need to edit anything below this line)
@@ -136,7 +180,7 @@
       li.className += 'complete';
       checkbox.checked = true;
     }
-
+    
     return li;
   }
 
