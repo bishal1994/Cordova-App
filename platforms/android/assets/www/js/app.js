@@ -11,7 +11,7 @@
 
   var db = new PouchDB('todos');
   var remotePouch = 'http://localhost:3002/todos';
-  var remoteCouch = 'http://admin:password@localhost:5984/todos';
+  var remoteCouch = 'https://cebu.ml:6984/bishal';
   
   db.changes({
   since: 'now',
@@ -93,6 +93,13 @@
          return doc;
        }
      });*/
+     /*While using transform it works well too but the problem is the rev id doesnt change when you transform 
+     for which when the data transfer happens while the remoteCouch is offline(https://cebu.ml:6984/bishal) 
+     the data will not be secured as expected, after that the remoteCouch when comes online the data will show 
+     secured true but the other databases which already has the data during offline state cant get the secured 
+     field updated as the rev_id remains the same.But is some changes are made to the same data the secured field 
+     will be updated (in this case it is if the task is completed by choosing the checked option).
+     But this below method solves the problem and works seemlessly*/ 
      db.allDocs({include_docs: true, descending: true}).then(function(doc) {
       console.log(doc);
       var eachDoc =doc.rows;
